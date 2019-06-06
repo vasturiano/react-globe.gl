@@ -1,0 +1,72 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/d3"></script>
+  <script src="//unpkg.com/polished/dist/polished.js"></script>
+
+  <script src="//unpkg.com/react-globe.gl"></script>
+  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useState, useEffect } = React;
+
+  const World = () => {
+    const [volcanoes, setVolcanoes] = useState([]);
+
+    useEffect(() => {
+      // load data
+      fetch('../datasets/world_volcanoes.json').then(res => res.json())
+        .then(setVolcanoes);
+    }, []);
+
+    const catColor = d3.scaleOrdinal(d3.schemeCategory10.map(col => polished.transparentize(0.2, col)));
+
+    const getAlt = d => d.elevation * 5e-5;
+
+    const getTooltip = d => `
+      <div style="text-align: center">
+        <div><b>${d.name}</b>, ${d.country}</div>
+        <div>(${d.type})</div>
+        <div>Elevation: <em>${d.elevation}</em>m</div>
+      </div>
+    `;
+
+    return <Globe
+      globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+
+      pointsData={volcanoes}
+      pointLat="lat"
+      pointLng="lon"
+      pointAltitude={getAlt}
+      pointRadius={0.12}
+      pointColor={d => catColor(d.type)}
+      pointLabel={getTooltip}
+
+      labelsData={volcanoes}
+      labelLat="lat"
+      labelLng="lon"
+      labelAltitude={d => getAlt(d) + 1e-6}
+      labelDotRadius={0.12}
+      labelDotOrientation={() => 'bottom'}
+      labelColor={d => catColor(d.type)}
+      labelText="name"
+      labelSize={0.15}
+      labelResolution={1}
+      labelLabel={getTooltip}
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>
