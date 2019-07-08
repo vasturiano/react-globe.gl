@@ -1,6 +1,6 @@
 {
   "name": "react-globe.gl",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React component for Globe Data Visualization using ThreeJS/WebGL",
   "license": "MIT",
   "unpkg": "dist/react-globe.gl.min.js",
