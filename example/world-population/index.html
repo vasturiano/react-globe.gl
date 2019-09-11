@@ -32,7 +32,7 @@
     useEffect(() => {
       // Auto-rotate
       globeEl.current.controls().autoRotate = true;
-      globeEl.current.controls().autoRotateSpeed = 0.3;
+      globeEl.current.controls().autoRotateSpeed = 0.1;
     }, []);
 
     const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
@@ -49,6 +49,7 @@
       hexBinResolution={4}
       hexTopColor={d => weightColor(d.sumWeight)}
       hexSideColor={d => weightColor(d.sumWeight)}
+      hexBinMerge={true}
       enablePointerInteraction={false}
     />;
   };
