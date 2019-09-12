@@ -39,7 +39,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.0.0",
+    "globe.gl": "^2.1.0",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.2"
   },

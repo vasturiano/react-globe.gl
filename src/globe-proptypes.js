@@ -49,6 +49,7 @@ export default {
   polygonGeoJsonGeometry: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   polygonCapColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   polygonSideColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  polygonStrokeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   polygonAltitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   polygonsTransitionDuration: PropTypes.number,
   polygonLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
