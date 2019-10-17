@@ -100,5 +100,6 @@ export default {
   onCustomLayerRightClick: PropTypes.func,
   onCustomLayerHover: PropTypes.func,
 
-  enablePointerInteraction: PropTypes.bool
+  enablePointerInteraction: PropTypes.bool,
+  onZoom:PropTypes.func
 };
