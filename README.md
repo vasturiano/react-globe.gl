@@ -22,14 +22,14 @@ Check out the examples:
 * [Highlight links](https://vasturiano.github.io/react-globe.gl/example/airline-routes/highlight-links.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/highlight-links.html))
 * [Choropleth](https://vasturiano.github.io/react-globe.gl/example/choropleth-countries/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/choropleth-countries/index.html))
 * [Elevated Polygons](https://vasturiano.github.io/react-globe.gl/example/countries-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/countries-population/index.html))
-* [Path Lines](https://vasturiano.github.io/react.globe.gl/example/random-paths/) ([source](https://github.com/vasturiano/react.globe.gl/blob/master/example/random-paths/index.html))
+* [Path Lines](https://vasturiano.github.io/react-globe.gl/example/random-paths/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-paths/index.html))
 * [Map Labels](https://vasturiano.github.io/react-globe.gl/example/world-cities/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-cities/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))
 * [World Population](https://vasturiano.github.io/react-globe.gl/example/world-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-population/index.html))
 * [Recent Earthquakes](https://vasturiano.github.io/react-globe.gl/example/earthquakes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/earthquakes/index.html))
 * [World Volcanoes](https://vasturiano.github.io/react-globe.gl/example/volcanoes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/volcanoes/index.html))
 * [US outbound international airline routes](https://vasturiano.github.io/react-globe.gl/example/airline-routes/us-international-outbound.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/us-international-outbound.html))
-* [Submarine Cables](https://vasturiano.github.io/react.globe.gl/example/submarine-cables/index.html) ([source](https://github.com/vasturiano/react.globe.gl/blob/master/example/submarine-cables/index.html))
+* [Submarine Cables](https://vasturiano.github.io/react-globe.gl/example/submarine-cables/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/submarine-cables/index.html))
 
 ## Quick start
 
