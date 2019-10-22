@@ -155,8 +155,8 @@ ReactDOM.render(
 
 ### Paths Layer
 
-| Method | Description | Default |
-| --- | --- | :--: |
+| Prop | Type | Default | Description |
+| --- | :--: | :--: | --- |
 | <b>pathsData</b> | <i>array</i> | `[]` | Getter/setter for the list of lines to represent in the paths map layer. Each path is displayed as a line that connects all the coordinate pairs in the path array. |
 | <b>pathPoints | <i>array</i>, <i>string</i> or <i>func</i> | `pnts => pnts` | Path object accessor function, attribute or an array for the set of points that define the path line. By default, each path point is assumed to be a 2-position array (`[<lat>, <lon>]`). This default behavior can be modified using the `pathPointLat` and `pathPointLng` methods. |
 | <b>pathPointLat | <i>number</i>, <i>string</i> or <i>func</i> | `arr => arr[0]` | Path point object accessor function, attribute or a numeric constant for the latitude coordinate. |
