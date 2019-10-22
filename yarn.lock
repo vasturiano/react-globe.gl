@@ -884,7 +884,7 @@ d3-geo@^1.11.6:
   dependencies:
     d3-array "1"
 
-d3-interpolate@1:
+d3-interpolate@1, d3-interpolate@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-1.3.2.tgz#417d3ebdeb4bc4efcc8fd4361c55e4040211fd68"
   integrity sha512-NlNKGopqaz9qM1PXh9gBF1KSCVh+jSFErrSlD/4hybwoNX/gt1d8CDbDW+3i+5UOHhjC6s6nMvRxcuoMVNgL2w==
@@ -999,16 +999,16 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-globe.gl@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.2.0.tgz#e805f63c41a1ce658c6d8dc3f6b165d8e09bdb12"
-  integrity sha512-9tb5iUHedXZK85UcolGA6kmowNRu7XPjZN95ogwoPC6I9SG5N2ZH0DI63OjQK876P7nYBk3Wn+as2jHKerQSJw==
+globe.gl@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.3.0.tgz#c65c7d3a20f5d12e3ebeb5601c67130f6d80ed71"
+  integrity sha512-yCZwNz8lfrPT6k6zexi5uT/RgBEmYs4BUdOacjwML8nMt9Cyr1bSbX/ZiOvvZbCiUUuvY5XsWwalaeecAYGmVw==
   dependencies:
     "@tweenjs/tween.js" "^18.3.1"
     accessor-fn "^1.2.2"
     kapsule "^1.12.1"
     three "^0.109.0"
-    three-globe "^2.1.2"
+    three-globe "^2.2.2"
     three-render-objects "^1.7.0"
 
 h3-js@^3.6.1:
@@ -1030,6 +1030,11 @@ index-array-by@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/index-array-by/-/index-array-by-1.2.6.tgz#931ed40128e107dc9d4ef06e23ec1c6652b8d11b"
   integrity sha512-IlJMBsvyUMibCPaHJh+kc9xDSPU2Sy7JhT2SHMRBiPsVtfqD17dc8WaiqunxnQ2kxDvYZQN/IoC0aeKU43Qziw==
+
+index-array-by@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/index-array-by/-/index-array-by-1.2.7.tgz#59a866617fd1fbfed3401f5aca533002dd088a09"
+  integrity sha512-wohXZ+tEndHGWTlUZETlxw7BwBAZbePF6X1y2QrTXGTTgJLFSZcNAOXPZtlmgj0/DSSUaL2sdpvv8sEv0tkGkw==
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -1315,10 +1320,10 @@ rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.24.0:
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.24.0.tgz#0ace969508babb7a5fcb228e831e9c9a2873c2b0"
-  integrity sha512-PiFETY/rPwodQ8TTC52Nz2DSCYUATznGh/ChnxActCr8rV5FIk3afBUb3uxNritQW/Jpbdn3kq1Rwh1HHYMwdQ==
+rollup@^1.25.1:
+  version "1.25.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.25.1.tgz#905707d686dc8d7218af63dcfb9e37d1f3dc3c34"
+  integrity sha512-K8ytdEzMa6anHSnfTIs2BLB+NXlQ4qmWwdNHBpYQNWCbZAzj+DRVk7+ssbLSgddwpFW1nThr2GElR+jASF2NPA==
   dependencies:
     "@types/estree" "*"
     "@types/node" "*"
@@ -1390,35 +1395,42 @@ three-conic-polygon-geometry@^1.1.2:
   dependencies:
     earcut "^2.1.5"
 
+three-fatline@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/three-fatline/-/three-fatline-0.2.4.tgz#9eadfb535d0de13ea1aaf5b4d869fc8fb580bbcb"
+  integrity sha512-VE99RWg/AvXgfkf5QoJWO8IXyoy2jn/O2VrkSrwkEOz1X3Xvdc0g7iB5/coxMpvljZn/sCDyKTYNSV0HuBAZ9Q==
+
 three-fly-controls@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/three-fly-controls/-/three-fly-controls-1.1.0.tgz#8ea796da94ac017f5ea44ec015b1db5e19a42bd0"
   integrity sha1-jqeW2pSsAX9epE7AFbHbXhmkK9A=
 
-three-geojson-geometry@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/three-geojson-geometry/-/three-geojson-geometry-1.0.0.tgz#055ac114f9ded78678e6e74946c8c3c295992814"
-  integrity sha512-pBk4czmCFxc3F+27iqEatSI/Z9lnWtdrh63/NNyswI0EcHp445Ohx2hiHah9bCp1Gb3nfFwJQgpd5NWsTxREew==
+three-geojson-geometry@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/three-geojson-geometry/-/three-geojson-geometry-1.0.2.tgz#5e676510a5e72945fd0e7a04f17072cd5580c2b1"
+  integrity sha512-cJaGmcJMo7mwoAjGjRHM+ubk0DkResUu5myaa8xu0r8C0Lt7kabi44p8W5phsoO7IzAmcQCp7Sz8F0XZikaEXw==
   dependencies:
     earcut "^2.1.5"
 
-three-globe@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/three-globe/-/three-globe-2.1.2.tgz#effb31bd5f48b0a3ff97b1726432a81919907409"
-  integrity sha512-RMDFrQh/2Uia4lWRSzRJe2O5C7yjM6LjKMLsf95KkkQFq8lFhmmZvWdKJtbXWeqQXiLNu1XNaojYSd1bnkJxvA==
+three-globe@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/three-globe/-/three-globe-2.2.2.tgz#05413e9f1cd04af62045ac5acef50468a16e26c3"
+  integrity sha512-XbK90CCz1kyLk5fl2KLX4hZ7MYJAgtBNyJwttHlTu6PGrTTK3V867vH5ofKdys0YhCLs9yT/qOPwTu4/iFWx3g==
   dependencies:
     "@tweenjs/tween.js" "^18.3.1"
     accessor-fn "^1.2.2"
     d3-geo "^1.11.6"
+    d3-interpolate "^1.3.2"
     d3-scale "^3.1.0"
     data-joint "^1.2.1"
     earcut "^2.2.1"
     frame-ticker "^1.0.3"
     h3-js "^3.6.1"
-    index-array-by "^1.2.6"
+    index-array-by "^1.2.7"
     kapsule "^1.12.1"
     three-conic-polygon-geometry "^1.1.2"
-    three-geojson-geometry "^1.0.0"
+    three-fatline "^0.2.4"
+    three-geojson-geometry "^1.0.2"
     tinycolor2 "^1.4.1"
 
 three-orbit-controls@^82.1.0:

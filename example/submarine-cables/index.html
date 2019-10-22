@@ -1,0 +1,55 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/react-globe.gl"></script>
+  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useState, useEffect } = React;
+
+  const World = () => {
+    const [cablePaths, setCablePaths] = useState([]);
+
+    useEffect(() => {
+      // from https://github.com/telegeography/www.submarinecablemap.com
+      fetch('//raw.githubusercontent.com/telegeography/www.submarinecablemap.com/master/public/api/v2/cable/cable-geo.json')
+        .then(r =>r.json())
+        .then(cablesGeo => {
+          let cablePaths = [];
+          cablesGeo.features.forEach(({ geometry, properties }) => {
+            geometry.coordinates.forEach(coords => cablePaths.push({ coords, properties }));
+          });
+
+          setCablePaths(cablePaths);
+        });
+    }, []);
+
+    return <Globe
+      globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+      bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+      pathsData={cablePaths}
+      pathPoints="coords"
+      pathPointLat={p => p[1]}
+      pathPointLng={p => p[0]}
+      pathColor={path => path.properties.color}
+      pathLabel={path => path.properties.slug}
+      pathDashLength={0.1}
+      pathDashGap={0.008}
+      pathDashAnimateTime={12000}
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>

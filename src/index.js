@@ -14,7 +14,7 @@ const Globe = fromKapsule(
     'renderer',
     'controls',
     'getCoords',
-    'toGeoCoords',
+    'toGeoCoords'
   ],
   ['animateIn', 'rendererConfig']
 );

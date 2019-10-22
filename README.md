@@ -11,7 +11,7 @@ React bindings for the [globe.gl](https://github.com/vasturiano/globe.gl) UI com
    <a href="//vasturiano.github.io/react-globe.gl/example/world-population/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/world-population/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/airline-routes/us-international-outbound.html"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/airline-routes/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/countries-population/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/countries-population/preview.png"></a>
-   <a href="//vasturiano.github.io/react-globe.gl/example/volcanoes/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/volcanoes/preview.png"></a>
+   <a href="//vasturiano.github.io/react-globe.gl/example/submarine-cables/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/submarine-cables/preview.png"></a>
 </p>
 
 A React component to represent data visualization layers on a 3-dimensional globe in a spherical projection, using [ThreeJS](https://github.com/mrdoob/three.js/)/WebGL for 3D rendering.
@@ -22,12 +22,14 @@ Check out the examples:
 * [Highlight links](https://vasturiano.github.io/react-globe.gl/example/airline-routes/highlight-links.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/highlight-links.html))
 * [Choropleth](https://vasturiano.github.io/react-globe.gl/example/choropleth-countries/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/choropleth-countries/index.html))
 * [Elevated Polygons](https://vasturiano.github.io/react-globe.gl/example/countries-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/countries-population/index.html))
+* [Path Lines](https://vasturiano.github.io/react.globe.gl/example/random-paths/) ([source](https://github.com/vasturiano/react.globe.gl/blob/master/example/random-paths/index.html))
 * [Map Labels](https://vasturiano.github.io/react-globe.gl/example/world-cities/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-cities/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))
 * [World Population](https://vasturiano.github.io/react-globe.gl/example/world-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-population/index.html))
 * [Recent Earthquakes](https://vasturiano.github.io/react-globe.gl/example/earthquakes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/earthquakes/index.html))
 * [World Volcanoes](https://vasturiano.github.io/react-globe.gl/example/volcanoes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/volcanoes/index.html))
 * [US outbound international airline routes](https://vasturiano.github.io/react-globe.gl/example/airline-routes/us-international-outbound.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/us-international-outbound.html))
+* [Submarine Cables](https://vasturiano.github.io/react.globe.gl/example/submarine-cables/index.html) ([source](https://github.com/vasturiano/react.globe.gl/blob/master/example/submarine-cables/index.html))
 
 ## Quick start
 
@@ -150,6 +152,24 @@ ReactDOM.render(
 | <b>onHexClick</b> | <i>func</i>| *-* |Callback function for hexagon (left-button) clicks. The hex object including all points binned is included as single argument: `onHexClick({ points, sumWeight, center: { lat, lng } })`. Only works if `hexBinMerge` is disabled. |
 | <b>onHexRightClick</b> | <i>func</i>| *-* |Callback function for hexagon right-clicks. The hex object including all points binned is included as single argument: `onHexRightClick({ points, sumWeight, center: { lat, lng } })`. Only works if `hexBinMerge` is disabled. |
 | <b>onHexHover</b> | <i>func</i>| *-* |Callback function for hexagon mouse over events. The hex object (or `null` if there's no hex under the mouse line of sight) is included as the first argument, and the previous hex object (or `null`) as second argument: `onHexHover(hex, prevHex)`. Each hex object includes all points binned, and has the syntax: `{ points, sumWeight, center: { lat, lng } }`. Only works if `hexBinMerge` is disabled. |
+
+### Paths Layer
+
+| Method | Description | Default |
+| --- | --- | :--: |
+| <b>pathsData</b> | <i>array</i> | `[]` | Getter/setter for the list of lines to represent in the paths map layer. Each path is displayed as a line that connects all the coordinate pairs in the path array. |
+| <b>pathPoints | <i>array</i>, <i>string</i> or <i>func</i> | `pnts => pnts` | Path object accessor function, attribute or an array for the set of points that define the path line. By default, each path point is assumed to be a 2-position array (`[<lat>, <lon>]`). This default behavior can be modified using the `pathPointLat` and `pathPointLng` methods. |
+| <b>pathPointLat | <i>number</i>, <i>string</i> or <i>func</i> | `arr => arr[0]` | Path point object accessor function, attribute or a numeric constant for the latitude coordinate. |
+| <b>pathPointLng | <i>number</i>, <i>string</i> or <i>func</i> | `arr => arr[1]` | Path point object accessor function, attribute or a numeric constant for the longitude coordinate. |
+| <b>pathPointAlt | <i>number</i>, <i>string</i> or <i>func</i> | 0.001 | Path point object accessor function, attribute or a numeric constant for the point altitude, in terms of globe radius units (`0` = 0 altitude (ground), `1` = globe radius). |
+| <b>pathResolution | <i>number</i> | 2 | Getter/setter for the path's angular resolution, in lat/lng degrees. If the ground distance (excluding altitude) between two adjacent path points is larger than this value, the line segment will be interpolated in order to approximate the curvature of the sphere surface. Lower values yield more perfectly curved lines, at the cost of performance. |
+| <b>pathColor | <i>string</i>, <i>[string, ...]</i> or <i>func</i> | `() => '#ffffaa'` | Path object accessor function or attribute for the line's color. Also supports color gradients by passing an array of colors. Transparent colors are not supported in Fat Lines with set width. |
+| <b>pathStroke | <i>number</i>, <i>string</i> or <i>func</i> | `null` | Path object accessor function, attribute or a numeric constant for the line's diameter, in angular degrees. A value of `null` or `undefined` will render a [ThreeJS Line](https://threejs.org/docs/#api/objects/Line) whose width is constant (`1px`) regardless of the camera distance. Otherwise, a [FatLine](https://github.com/vasturiano/three-fatline) is used. |
+| <b>pathDashLength | <i>number</i>, <i>string</i> or <i>func</i> | 1 | Path object accessor function, attribute or a numeric constant for the length of the dashed segments in the path line, in terms of relative length of the whole line (`1` = full line length). |
+| <b>pathDashGap | <i>number</i>, <i>string</i> or <i>func</i> | 0 | Path object accessor function, attribute or a numeric constant for the length of the gap between dash segments, in terms of relative line length. |
+| <b>pathDashInitialGap | <i>number</i>, <i>string</i> or <i>func</i> | 0 | Path object accessor function, attribute or a numeric constant for the length of the initial gap before the first dash segment, in terms of relative line length. Not supported in Fat Lines with set width. |
+| <b>pathDashAnimateTime | <i>number</i>, <i>string</i> or <i>func</i> | 0 | Path object accessor function, attribute or a numeric constant for the time duration (in `ms`) to animate the motion of dash positions from the start to the end point for a full line length. A value of `0` disables the animation. Not supported in Fat Lines with set width. |
+| <b>pathTransitionDuration | <i>number</i> | 1000 | Getter/setter for duration (ms) of the transition to animate path changes. A value of `0` will move the paths immediately to their final position. New paths are animated from start to end. |
 
 ### Labels Layer
 
