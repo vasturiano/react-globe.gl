@@ -30,7 +30,7 @@
   "homepage": "https://github.com/vasturiano/react-globe.gl",
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "watch": "rollup -c -w",
+    "dev": "rollup -c -w",
     "minify": "terser dist/react-globe.gl.js -o dist/react-globe.gl.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepare": "npm run build && npm run minify && npm run build-module"
@@ -39,7 +39,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.3.0",
+    "globe.gl": "^2.4.2",
     "prop-types": "^15.7.2",
     "react-kapsule": "^1.4.3"
   },
@@ -47,13 +47,13 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
     "rimraf": "^3.0.0",
-    "rollup": "^1.25.1",
+    "rollup": "^1.26.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",

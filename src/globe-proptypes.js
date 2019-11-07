@@ -91,6 +91,18 @@ export default {
   onHexRightClick: PropTypes.func,
   onHexHover: PropTypes.func,
 
+  hexPolygonsData: PropTypes.arrayOf(PropTypes.object),
+  hexPolygonGeoJsonGeometry: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  hexPolygonColor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  hexPolygonAltitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  hexPolygonResolution: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  hexPolygonMargin: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  hexPolygonsTransitionDuration: PropTypes.number,
+  hexPolygonLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onHexPolygonClick: PropTypes.func,
+  onHexPolygonRightClick: PropTypes.func,
+  onHexPolygonHover: PropTypes.func,
+
   labelsData: PropTypes.arrayOf(PropTypes.object),
   labelLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   labelLng: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
