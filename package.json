@@ -41,7 +41,7 @@
   "dependencies": {
     "globe.gl": "^2.4.3",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.0.0"
+    "react-kapsule": "^2.1.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0"
