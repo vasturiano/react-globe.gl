@@ -4,19 +4,20 @@ import GlobePropTypes from './globe-proptypes';
 
 const Globe = fromKapsule(
   GlobeKapsule,
-  undefined,
-  [ // bind methods
-    'pauseAnimation',
-    'resumeAnimation',
-    'pointOfView',
-    'scene',
-    'camera',
-    'renderer',
-    'controls',
-    'getCoords',
-    'toGeoCoords'
-  ],
-  ['animateIn', 'rendererConfig']
+  {
+    methodNames: [ // bind methods
+      'pauseAnimation',
+      'resumeAnimation',
+      'pointOfView',
+      'scene',
+      'camera',
+      'renderer',
+      'controls',
+      'getCoords',
+      'toGeoCoords'
+    ],
+    initPropNames: ['animateIn', 'rendererConfig']
+  }
 );
 
 Globe.displayName = 'Globe';
