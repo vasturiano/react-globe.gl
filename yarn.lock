@@ -1016,16 +1016,16 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-globe.gl@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.5.0.tgz#920d5aae1097e34a37a1bfae4785a5ff856e7131"
-  integrity sha512-kLfipqX/d/ZKGqCYKrVCkiQRG7z99kLIh8Pf3Yj+BScwuO9P1ZPIYDd7fJ1KR9Y/YMg4T5hXkxK42A2r8AWlyA==
+globe.gl@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.5.1.tgz#7678e604bb638d0e703c3b608b9f8d37bc5a3028"
+  integrity sha512-GxOxPPVAog0FeCqD2vgjA5eP5iYR06niQVNZYHsced7438GWTIB/Z6X2dTtLE5FodDKZVZWAIwHvJVoUF57IXA==
   dependencies:
     "@tweenjs/tween.js" "^18.4.2"
     accessor-fn "^1.2.2"
     kapsule "^1.12.1"
     three "^0.110.0"
-    three-globe "^2.4.0"
+    three-globe "^2.4.1"
     three-render-objects "^1.9.0"
 
 h3-js@^3.6.2:
@@ -1432,10 +1432,10 @@ three-geojson-geometry@^1.0.4:
   dependencies:
     earcut "^2.2.1"
 
-three-globe@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/three-globe/-/three-globe-2.4.0.tgz#2a7b7dcd5b596b9c0264786655d0fd1f88a97c1c"
-  integrity sha512-RMkPgj6CUmTKFU0Jzu9Zn3RQLodDmagZW5ppWe9QfYLsLE7Ex/rpZm9QAGdizpRLwtsiZquaMhBSN1T3RqHODA==
+three-globe@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/three-globe/-/three-globe-2.4.1.tgz#46cb49be284e093f5f113050c333b1a4c8e2c925"
+  integrity sha512-AAtvLeMXxKDLkOZKzX8Q8/KoPOxH+pRjtbLqg2naYRlyVDbPqEPL+4NdBCt0UggUrgdjA3Ocd5Y5gdWk5CFq/Q==
   dependencies:
     "@tweenjs/tween.js" "^18.4.2"
     accessor-fn "^1.2.2"
