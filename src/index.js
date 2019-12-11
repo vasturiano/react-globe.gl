@@ -16,7 +16,11 @@ const Globe = fromKapsule(
       'getCoords',
       'toGeoCoords'
     ],
-    initPropNames: ['animateIn', 'rendererConfig']
+    initPropNames: [
+      'animateIn',
+      'waitForGlobeReady',
+      'rendererConfig'
+    ]
   }
 );
 
