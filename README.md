@@ -64,7 +64,8 @@ ReactDOM.render(
 | <b>width</b> | <i>number</i> | *&lt;window width&gt;* | Getter/setter for the canvas width. |
 | <b>height</b> | <i>number</i> | *&lt;window height&gt;* | Getter/setter for the canvas height. |
 | <b>backgroundColor</b> | <i>string</i> | `#000011` | Getter/setter for the background color. |
-| <b>waitForGlobeReady</b> | <i>bool</i> | `true` | Whether to wait until the globe wrapping image has been fully loaded before rendering the globe or any of the data layers. |
+| <b>backgroundImageUrl</b> | <i>string</i> | *-* | Getter/setter for the URL of the image to be used as background to the globe. If no image is provided, the background color is shown instead. |
+| <b>waitForGlobeReady</b> | <i>bool</i> | `true` | Whether to wait until the globe wrapping or background image has been fully loaded before rendering the globe or any of the data layers. |
 | <b>animateIn</b> | <i>bool</i> | `true` | Whether to animate the globe initialization, by scaling and rotating the globe into its inital position. This prop only has an effect on component mount. |
 
 ### Globe Layer

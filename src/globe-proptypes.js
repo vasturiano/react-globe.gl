@@ -4,6 +4,7 @@ export default {
   width: PropTypes.number,
   height: PropTypes.number,
   backgroundColor: PropTypes.string,
+  backgroundImageUrl: PropTypes.string,
 
   globeImageUrl: PropTypes.string,
   bumpImageUrl: PropTypes.string,
