@@ -2,10 +2,8 @@ import * as React from 'react';
 import { Scene, Camera, WebGLRenderer, Object3D } from 'three';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
-type AccessorBasic<In, Out> = string | ((obj: In) => Out);
-type Accessor<In, Out> = Out | AccessorBasic<In, Out>;
+type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type ObjAccessor<T> = Accessor<object, T>;
-
 type HexBinAccessor<T> = Accessor<HexBin, T>;
 
 interface HexBin {
