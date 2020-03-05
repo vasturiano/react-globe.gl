@@ -195,7 +195,8 @@ interface GlobeMethods {
   toGeoCoords(coords: CartesianCoords): GeoCoords;
 }
 
-type Globe = React.ForwardRefRenderFunction<GlobeMethods, GlobeProps>;
-// type Globe = React.FC<GlobeProps & GlobeMethods>;
+declare const Globe: React.ForwardRefRenderFunction<GlobeMethods, GlobeProps>;
+// declare const Globe: React.FC<GlobeProps & Partial<GlobeMethods>>;
+// declare class Globe extends React.Component<GlobeProps & Partial<GlobeMethods>> {}
 
 export default Globe;
