@@ -33,7 +33,7 @@ interface CartesianCoords {
   z: number;
 }
 
-interface GlobeProps extends ConfigOptions {
+export interface GlobeProps extends ConfigOptions {
   // Container layout
   width?: number;
   height?: number;
@@ -179,7 +179,7 @@ interface GlobeProps extends ConfigOptions {
   onZoom?: (pov: GeoCoords) => void;
 }
 
-interface GlobeMethods {
+export interface GlobeMethods {
   // Render control
   pointOfView(): GeoCoords;
   pointOfView(pov: { lat?: number, lng?: number, altitude?: number }, transitionMs?: number): GlobeKapsuleInstance;
@@ -195,8 +195,8 @@ interface GlobeMethods {
   toGeoCoords(coords: CartesianCoords): GeoCoords;
 }
 
-declare const Globe: React.ForwardRefRenderFunction<GlobeMethods, GlobeProps>;
-// declare const Globe: React.FC<GlobeProps & Partial<GlobeMethods>>;
-// declare class Globe extends React.Component<GlobeProps & Partial<GlobeMethods>> {}
+type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R> }>;
+
+declare const Globe: FCwithRef<GlobeProps, GlobeMethods>;
 
 export default Globe;
