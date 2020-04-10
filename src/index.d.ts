@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Scene, Camera, WebGLRenderer, Object3D } from 'three';
+import { Scene, Camera, WebGLRenderer, Object3D, MeshPhongMaterial } from 'three';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
@@ -180,6 +180,9 @@ export interface GlobeProps extends ConfigOptions {
 }
 
 export interface GlobeMethods {
+  // Globe layer
+  globeMaterial(): MeshPhongMaterial;
+
   // Render control
   pointOfView(): GeoCoords;
   pointOfView(pov: { lat?: number, lng?: number, altitude?: number }, transitionMs?: number): GlobeKapsuleInstance;
