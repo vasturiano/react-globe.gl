@@ -198,7 +198,7 @@ export interface GlobeMethods {
   toGeoCoords(coords: CartesianCoords): GeoCoords;
 }
 
-type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R> }>;
+type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
 
 declare const Globe: FCwithRef<GlobeProps, GlobeMethods>;
 
