@@ -38,26 +38,26 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.9.3",
+    "globe.gl": "^2.10.0",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.8"
+    "react-kapsule": "^2.1.9"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@types/react": "^16.9.27",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "@types/react": "^16.9.34",
     "rimraf": "^3.0.2",
-    "rollup": "^2.6.0",
+    "rollup": "^2.8.2",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-dts": "^1.3.0",
+    "rollup-plugin-dts": "^1.4.1",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^5.3.0",
     "typescript": "^3.8.3"

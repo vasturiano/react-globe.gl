@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Scene, Camera, WebGLRenderer, Object3D, MeshPhongMaterial } from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
@@ -191,6 +192,7 @@ export interface GlobeMethods {
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
+  postProcessingComposer(): EffectComposer;
   controls(): object;
 
   // Utilities

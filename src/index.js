@@ -13,6 +13,7 @@ const Globe = fromKapsule(
       'scene',
       'camera',
       'renderer',
+      'postProcessingComposer',
       'controls',
       'getCoords',
       'toGeoCoords'
