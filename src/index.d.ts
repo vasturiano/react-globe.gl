@@ -34,6 +34,11 @@ interface CartesianCoords {
   z: number;
 }
 
+interface ScreenCoords {
+  x: number;
+  y: number;
+}
+
 export interface GlobeProps extends ConfigOptions {
   // Container layout
   width?: number;
@@ -197,6 +202,7 @@ export interface GlobeMethods {
 
   // Utilities
   getCoords(lat: number, lng: number, altitude?: number): CartesianCoords;
+  getScreenCoords(lat: number, lng: number, altitude?: number): ScreenCoords;
   toGeoCoords(coords: CartesianCoords): GeoCoords;
 }
 

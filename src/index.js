@@ -16,6 +16,7 @@ const Globe = fromKapsule(
       'postProcessingComposer',
       'controls',
       'getCoords',
+      'getScreenCoords',
       'toGeoCoords'
     ],
     initPropNames: [
