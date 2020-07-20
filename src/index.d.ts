@@ -96,6 +96,7 @@ export interface GlobeProps extends ConfigOptions {
   polygonSideColor?: ObjAccessor<string>;
   polygonStrokeColor?: ObjAccessor<string | boolean | null>;
   polygonAltitude?: ObjAccessor<number>;
+  polygonCapCurvatureResolution?: ObjAccessor<number>;
   polygonsTransitionDuration?: number;
   polygonLabel?: ObjAccessor<string>;
   onPolygonClick?: (polygon: object) => void;
@@ -129,6 +130,7 @@ export interface GlobeProps extends ConfigOptions {
   hexBinResolution?: number;
   hexMargin?: HexBinAccessor<number>;
   hexAltitude?: HexBinAccessor<number>;
+  hexTopCurvatureResolution?: number;
   hexTopColor?: HexBinAccessor<string>;
   hexSideColor?: HexBinAccessor<string>;
   hexBinMerge?: boolean;
@@ -145,6 +147,7 @@ export interface GlobeProps extends ConfigOptions {
   hexPolygonAltitude?: ObjAccessor<number>;
   hexPolygonResolution?: ObjAccessor<number>;
   hexPolygonMargin?: ObjAccessor<number>;
+  hexPolygonCurvatureResolution?: ObjAccessor<number>;
   hexPolygonsTransitionDuration?: number;
   hexPolygonLabel?: ObjAccessor<string>;
   onHexPolygonClick?: (polygon: object) => void;
