@@ -38,9 +38,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.12.6",
+    "globe.gl": "^2.13.0",
     "prop-types": "^15.7.2",
-    "react-kapsule": "^2.1.9"
+    "react-kapsule": "^2.2.0"
   },
   "peerDependencies": {
     "react": "*"
@@ -55,7 +55,7 @@
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@types/react": "^16.9.43",
     "rimraf": "^3.0.2",
-    "rollup": "^2.22.2",
+    "rollup": "^2.23.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^1.4.9",
     "rollup-plugin-replace": "^2.2.0",

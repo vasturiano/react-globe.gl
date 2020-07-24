@@ -17,7 +17,8 @@ const Globe = fromKapsule(
       'controls',
       'getCoords',
       'getScreenCoords',
-      'toGeoCoords'
+      'toGeoCoords',
+      'toGlobeCoords'
     ],
     initPropNames: [
       'animateIn',

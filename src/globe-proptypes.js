@@ -10,6 +10,8 @@ export default {
   bumpImageUrl: PropTypes.string,
   showAtmosphere: PropTypes.bool,
   showGraticules: PropTypes.bool,
+  onGlobeClick: PropTypes.func,
+  onGlobeRightClick: PropTypes.func,
 
   pointsData: PropTypes.arrayOf(PropTypes.object),
   pointLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
