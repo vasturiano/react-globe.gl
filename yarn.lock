@@ -1264,17 +1264,17 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-globe.gl@^2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.13.0.tgz#342e7ecd745eb1fab70f61a85746e43e84dc99ec"
-  integrity sha512-8y7dtejy3Am+C9IOkym7czYuTgk+ocmTXfGDuqJe3t18qirU4tORH9Kxo4tD9iuV5q/caDAp8qkyHd1JHNyQVw==
+globe.gl@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.14.0.tgz#0f10ee70800f2109dfd04c7760969b995b043249"
+  integrity sha512-tl6Eq2mtFR49qImnAQ8tH3yrNULAFgmXAenogZLYTCp0nQ5Qw7yXD+QFgLou026aQCvNVBaDZ6LYZnLJZD4WfA==
   dependencies:
     "@tweenjs/tween.js" "^18.6.0"
     accessor-fn "^1.3.0"
     kapsule "^1.13.3"
     three "^0.118.3"
     three-globe "^2.8.7"
-    three-render-objects "^1.23.0"
+    three-render-objects "^1.24.0"
 
 h3-js@^3.6.4:
   version "3.6.4"
@@ -1748,10 +1748,10 @@ three-glow-mesh@^0.1.1:
   resolved "https://registry.yarnpkg.com/three-glow-mesh/-/three-glow-mesh-0.1.1.tgz#0accf2ef0c53620beeb9bfeb455a7319b8d54a11"
   integrity sha512-1PfgG0HdDG3XrkrK/OzAeu7Pw8d9cGNfupKIUS93DYCboXAVAl7/5TMNWsHy/h6x47rZwiQYVd04WOfIsKtY7Q==
 
-three-render-objects@^1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/three-render-objects/-/three-render-objects-1.23.0.tgz#09311a7259a34b9808b52e10e814e88e64f7ddea"
-  integrity sha512-El2Try2QW7kZ9kbgEYcEPWcuSDdmBx2ZExZ5N7V0fdamMrqpJ5GeBH8vAsjt7dPUUaH3fAn0OYHArcxZeRrPhA==
+three-render-objects@^1.24.0:
+  version "1.24.1"
+  resolved "https://registry.yarnpkg.com/three-render-objects/-/three-render-objects-1.24.1.tgz#09e5a1307955e5620ee87296a5501b48caee5382"
+  integrity sha512-mnN5x5RSF8oISunCtCeuJTFq+Zf4pJbq3i6yMCYBsDKstaE07aUjarCbooOFHlXczNPKSz8r0q7hKCIALHnn5A==
   dependencies:
     "@tweenjs/tween.js" "^18.6.0"
     accessor-fn "^1.3.0"

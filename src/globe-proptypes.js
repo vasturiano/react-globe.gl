@@ -137,5 +137,6 @@ export default {
   onCustomLayerHover: PropTypes.func,
 
   enablePointerInteraction: PropTypes.bool,
+  pointerEventsFilter: PropTypes.func,
   onZoom:PropTypes.func
 };
