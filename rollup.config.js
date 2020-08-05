@@ -1,7 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonJs from '@rollup/plugin-commonjs';
-import replace from 'rollup-plugin-replace';
-import babel from 'rollup-plugin-babel';
+import replace from '@rollup/plugin-replace';
+import babel from '@rollup/plugin-babel';
 import { terser } from "rollup-plugin-terser";
 import dts from 'rollup-plugin-dts';
 import { name, homepage, version, dependencies, peerDependencies } from './package.json';
@@ -33,7 +33,7 @@ export default [
     ],
     plugins: [
       replace({ 'process.env.NODE_ENV': JSON.stringify('development') }), // To fool React in the browser
-      babel({ exclude: '**/node_modules/**' }),
+      babel({ exclude: '**/node_modules/**', babelHelpers: 'bundled' }),
       resolve(),
       commonJs()
     ]
@@ -52,7 +52,7 @@ export default [
     ],
     external: [...Object.keys(dependencies), ...Object.keys(peerDependencies)],
     plugins: [
-      babel()
+      babel({ babelHelpers: 'bundled' })
     ]
   },
   { // expose TS declarations
