@@ -121,7 +121,7 @@ export default {
   labelResolution: PropTypes.number,
   labelIncludeDot: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.func]),
   labelDotRadius: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
-  labelDotOrientation: PropTypes.oneOf(['right', 'top', 'bottom']),
+  labelDotOrientation: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   labelsTransitionDuration: PropTypes.number,
   labelLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   onLabelClick: PropTypes.func,
