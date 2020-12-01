@@ -41,7 +41,7 @@
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
 
-      polygonsData={countries.features}
+      polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
       polygonAltitude={d => d === hoverD ? 0.12 : 0.06}
       polygonCapColor={d => d === hoverD ? 'steelblue' : colorScale(getVal(d))}
       polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}

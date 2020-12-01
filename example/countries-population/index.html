@@ -46,7 +46,7 @@
       ref={globeEl}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
 
-      polygonsData={countries.features}
+      polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
       polygonAltitude={altitude}
       polygonCapColor={() => 'rgba(200, 0, 0, 0.6)'}
       polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
