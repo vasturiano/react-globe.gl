@@ -27,6 +27,8 @@ Check out the examples:
 * [Path Lines](https://vasturiano.github.io/react-globe.gl/example/random-paths/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-paths/index.html))
 * [Map Labels](https://vasturiano.github.io/react-globe.gl/example/world-cities/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-cities/index.html))
 * [Hexed Country Polygons](https://vasturiano.github.io/react-globe.gl/example/hexed-polygons/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/hexed-polygons/index.html))
+* [Tiles](https://vasturiano.github.io/react-globe.gl/example/tiles/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/tiles/index.html))
+* [Solar Terminator](https://vasturiano.github.io/react-globe.gl/example/solar-terminator/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/solar-terminator/index.html))
 * [Custom Globe Styling](https://vasturiano.github.io/react-globe.gl/example/custom-globe-styling/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))
 * [World Population](https://vasturiano.github.io/react-globe.gl/example/world-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-population/index.html))
@@ -141,7 +143,7 @@ ReactDOM.render(
 | <b>polygonGeoJsonGeometry</b> | <i>string</i> or <i>func</i> | `geometry` | Polygon object accessor function or attribute for the GeoJson geometry specification of the polygon's shape. The returned value should have a minimum of two fields: `type` and `coordinates`. Only GeoJson geometries of type `Polygon` or `MultiPolygon` are supported, other types will be skipped. |
 | <b>polygonCapColor</b> | <i>string</i> or <i>func</i> | `() => '#ffffaa'` | Polygon object accessor function or attribute for the color of the top surface. |
 | <b>polygonSideColor</b> | <i>string</i> or <i>func</i> | `() => '#ffffaa'` | Polygon object accessor function or attribute for the color of the cone sides. |
-| <b>polygonStrokeColor</b>([<i>string</i> or <i>func</i>]) | *-* | Polygon object accessor function or attribute for the color to stroke the polygon perimeter. A falsy value will disable the stroking. |
+| <b>polygonStrokeColor</b> | <i>string</i> or <i>func</i> | *-* | Polygon object accessor function or attribute for the color to stroke the polygon perimeter. A falsy value will disable the stroking. |
 | <b>polygonAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.01 | Polygon object accessor function, attribute or a numeric constant for the polygon cone's altitude in terms of globe radius units (`0` = 0 altitude (flat polygon), `1` = globe radius). |
 | <b>polygonCapCurvatureResolution</b> | <i>number</i>, <i>string</i> or <i>func</i> | 5 | Polygon object accessor function, attribute or a numeric constant for the resolution (in angular degrees) of the cap surface curvature. The finer the resolution, the more the polygon is fragmented into smaller faces to approximate the spheric surface, at the cost of performance. |
 | <b>polygonsTransitionDuration</b> | <i>number</i> | 1000 | Getter/setter for duration (ms) of the transition to animate polygon altitude changes. A value of `0` will size the cone immediately to their final altitude. New polygons are animated by rising them from the ground up. |
@@ -209,6 +211,25 @@ ReactDOM.render(
 | <b>onHexPolygonRightClick</b> | <i>func</i> | *-* | Callback function for hexed polygon right-clicks. The polygon object and the event object are included as arguments: `onHexPolygonRightClick(polygon, event)`. |
 | <b>onHexPolygonHover</b> | <i>func</i> | *-* | Callback function for hexed polygon mouse over events. The polygon object (or `null` if there's no polygon under the mouse line of sight) is included as the first argument, and the previous polygon object (or `null`) as second argument: `onHexPolygonHover(polygon, prevPolygon)`. |
 
+### Tiles Layer
+
+| Prop | Type | Default | Description |
+| --- | :--: | :--: | --- |
+| <b>tilesData</b> | <i>array</i> | `[]` | Getter/setter for the list of tiles to represent in the tiles map layer. Each tile is displayed as a spherical surface segment. The segments can be placed side-by-side for a tiled surface and each can be styled separately. |
+| <b>tileLabel</b> | <i>string</i> or <i>func</i> | `name` | Tile object accessor function or attribute for label (shown as tooltip). Supports plain text or HTML content. |
+| <b>tileLat</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lat` | Tile object accessor function, attribute or a numeric constant for the segment's centroid latitude coordinate. |
+| <b>tileLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lng` | Tile object accessor function, attribute or a numeric constant for the segment's centroid longitude coordinate. |
+| <b>tileAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.01 | Tile object accessor function, attribute or a numeric constant for the segment's altitude in terms of globe radius units. |
+| <b>tileWidth</b> | <i>number</i>, <i>string</i> or <i>func</i> | 1 | Tile object accessor function, attribute or a numeric constant for the segment's longitudinal width, in angular degrees. |
+| <b>tileHeight</b> | <i>number</i>, <i>string</i> or <i>func</i> | 1 | Tile object accessor function, attribute or a numeric constant for the segment's latitudinal height, in angular degrees. |
+| <b>tileUseGlobeProjection</b> | <i>bool</i>, <i>string</i> or <i>func</i> | `true` | Tile object accessor function, attribute or a boolean constant for whether to use the globe's projection to shape the segment to its relative tiled position (`true`), or break free from this projection and shape the segment as if it would be laying directly on the equatorial perimeter (`false`). |
+| <b>tileMaterial</b> | <i>string</i> or <i>func</i> | `() => new MeshLambertMaterial({ color: '#ffbb88' })` | Tile object accessor function or attribute for the [ThreeJS material](https://threejs.org/docs/#api/en/materials/Material) used to style the segment's surface. |
+| <b>tileCurvatureResolution</b> | <i>number</i>, <i>string</i> or <i>func</i> | 5 | Tile object accessor function, attribute or a numeric constant for the resolution (in angular degrees) of the surface curvature. The finer the resolution, the more the tile geometry is fragmented into smaller faces to approximate the spheric surface, at the cost of performance. |
+| <b>tilesTransitionDuration</b> | <i>number</i> | 1000 | Getter/setter for duration (ms) of the transition to animate tile changes involving geometry modifications. A value of `0` will move the tiles immediately to their final position. New tiles are animated by scaling them from the centroid outwards. |
+| <b>onTileClick</b> | <i>func</i> | *-* | Callback function for tile (left-button) clicks. The tile object and the event object are included as arguments: `onTileClick(tile, event)`. |
+| <b>onTileRightClick</b> | <i>func</i> | *-* | Callback function for tile right-clicks. The tile object and the event object are included as arguments: `onTileRightClick(tile, event)`. |
+| <b>onTileHover</b> | <i>func</i> | *-* | Callback function for tile mouse over events. The tile object (or `null` if there's no tile under the mouse line of sight) is included as the first argument, and the previous tile object (or `null`) as second argument: `onTileHover(tile, prevTile)`. |
+
 ### Labels Layer
 
 | Prop | Type | Default | Description |
@@ -257,7 +278,7 @@ ReactDOM.render(
 | <b>pointOfView</b> | { <i>lat</i>, <i>lng</i>, <i>altitude</i> } [,<i>ms</i>=`0`] | By default the camera will aim at the cross between the equator and the prime meridian (`0,0` coordinates), at an altitude of `2.5` globe radii. | Getter/setter for the camera position, in terms of geographical `lat`, `lng`, `altitude` coordinates. Each of the coordinates is optional, allowing for motion in just some direction. The 2nd optional argument defines the duration of the transition (in ms) to animate the camera motion. A value of 0 (default) moves the camera immediately to the final position. |
 | <b>pauseAnimation</b>| *-* |Pauses the rendering cycle of the component, effectively freezing the current view and cancelling all user interaction. This method can be used to save performance in circumstances when a static image is sufficient. |
 | <b>resumeAnimation</b>| *-* |Resumes the rendering cycle of the component, and re-enables the user interaction. This method can be used together with `pauseAnimation` for performance optimization purposes. |
-| <b>onZoom</b> | <i>fn</i> | *-* | Callback function for point-of-view changes by zooming or rotating the globe using the orbit controls. The current point of view (with the syntax `{ lat, lng, altitude }`) is included as sole argument. |
+| <b>onZoom</b> | <i>func</i> | *-* | Callback function for point-of-view changes by zooming or rotating the globe using the orbit controls. The current point of view (with the syntax `{ lat, lng, altitude }`) is included as sole argument. |
 | <b>scene</b>| *-* |Access the internal ThreeJS [Scene](https://threejs.org/docs/#api/scenes/Scene). Can be used to extend the current scene with additional objects not related to globe.gl. |
 | <b>camera</b>| *-* |Access the internal ThreeJS [Camera](https://threejs.org/docs/#api/cameras/PerspectiveCamera). |
 | <b>renderer</b>| *-* |Access the internal ThreeJS [WebGL renderer](https://threejs.org/docs/#api/renderers/WebGLRenderer). |

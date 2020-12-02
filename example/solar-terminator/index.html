@@ -1,0 +1,61 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/solar-calculator"></script>
+
+    <script src="//unpkg.com/react-globe.gl"></script>
+<!--  <script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useState, useEffect } = React;
+
+  const VELOCITY = 9; // minutes per frame
+
+  const solarMaterial = new THREE.MeshLambertMaterial({ color: '#ffff00', opacity: 0.3, transparent: true });
+
+  const sunPosAt = dt => {
+    const day = new Date(+dt).setUTCHours(0, 0, 0, 0);
+    const t = solar.century(dt);
+    const longitude = (day - dt) / 864e5 * 360 - 180;
+    return [longitude - solar.equationOfTime(t) / 4, solar.declination(t)];
+  };
+
+  const World = () => {
+    const [dt, setDt] = useState(+new Date());
+
+    useEffect(() => {
+      (function iterateTime() {
+        setDt(dt => dt + VELOCITY * 60 * 1000);
+        requestAnimationFrame(iterateTime);
+      })();
+    }, []);
+
+    return <Globe
+      globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+      tilesData={[{ pos: sunPosAt(dt) }]}
+      tileLng={d => d.pos[0]}
+      tileLat={d => d.pos[1]}
+      tileAltitude={0.005}
+      tileWidth={180}
+      tileHeight={180}
+      tileUseGlobeProjection={false}
+      tileMaterial={() => solarMaterial}
+      tilesTransitionDuration={0}
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>

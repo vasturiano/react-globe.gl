@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Scene, Camera, WebGLRenderer, Object3D, MeshPhongMaterial } from 'three';
+import { Scene, Camera, WebGLRenderer, Object3D, MeshPhongMaterial, Material } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
@@ -155,6 +155,22 @@ export interface GlobeProps extends ConfigOptions {
   onHexPolygonClick?: (polygon: object, event: MouseEvent) => void;
   onHexPolygonRightClick?: (polygon: object, event: MouseEvent) => void;
   onHexPolygonHover?: (polygon: object | null, prevPolygon: object | null) => void;
+
+  // Tiles layer
+  tilesData?: object[];
+  tileLat?: ObjAccessor<number>;
+  tileLng?: ObjAccessor<number>;
+  tileAltitude?: ObjAccessor<number>;
+  tileWidth?: ObjAccessor<number>;
+  tileHeight?: ObjAccessor<number>;
+  tileUseGlobeProjection?: ObjAccessor<boolean>;
+  tileMaterial?: ObjAccessor<Material>;
+  tileCurvatureResolution?: ObjAccessor<number>;
+  tilesTransitionDuration?: number;
+  tileLabel?: ObjAccessor<string>;
+  onTileClick?: (tile: object, event: MouseEvent) => void;
+  onTileRightClick?: (tile: object, event: MouseEvent) => void;
+  onTileHover?: (tile: object | null, prevTile: object | null) => void;
 
   // Labels layer
   labelsData?: object[];
