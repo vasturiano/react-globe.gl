@@ -95,7 +95,9 @@ export interface GlobeProps extends ConfigOptions {
   polygonsData?: object[];
   polygonGeoJsonGeometry?: ObjAccessor<GeoJsonGeometry>;
   polygonCapColor?: ObjAccessor<string>;
+  polygonCapMaterial?: ObjAccessor<Material>;
   polygonSideColor?: ObjAccessor<string>;
+  polygonSideMaterial?: ObjAccessor<Material>;
   polygonStrokeColor?: ObjAccessor<string | boolean | null>;
   polygonAltitude?: ObjAccessor<number>;
   polygonCapCurvatureResolution?: ObjAccessor<number>;
