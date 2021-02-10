@@ -38,7 +38,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.16.3",
+    "globe.gl": "^2.16.4",
     "prop-types": "^15.7.2",
     "react-kapsule": "^2.2.1"
   },
@@ -60,6 +60,6 @@
     "rollup": "^2.38.5",
     "rollup-plugin-dts": "^2.0.1",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.4"
   }
 }
