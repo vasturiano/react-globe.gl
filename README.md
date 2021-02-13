@@ -81,6 +81,7 @@ ReactDOM.render(
 | --- | :--: | :--: | --- |
 | <b>globeImageUrl</b> | <i>string</i>| *-* | Getter/setter for the URL of the image used in the material that wraps the globe. If no image is provided, the globe is represented as a black sphere. |
 | <b>bumpImageUrl</b> | <i>string</i>| *-* | Getter/setter for the URL of the image used to create a [bump map](https://threejs.org/docs/#api/en/materials/MeshStandardMaterial.bumpMap) in the material, to represent the globe's terrain. |
+| <b>showGlobe</b> | <i>bool</i> | `true` | Getter/setter for whether to show the globe surface itself. |
 | <b>showAtmosphere</b> | <i>bool</i> | `true` | Getter/setter for whether to show a bright halo surrounding the globe, representing the atmosphere. |
 | <b>showGraticules</b> | <i>bool</i> | `false` | Getter/setter for whether to show a graticule grid demarking latitude and longitude lines at every 10 degrees. |
 | <b>onGlobeClick</b> | <i>func</i> | *-* | Callback function for (left-button) clicks on the globe. The clicked globe coordinates and the event object are included as arguments: `onGlobeClick({ lat, lng }, event)`. |
