@@ -1,0 +1,49 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/babel-standalone"></script>
+
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/topojson-client"></script>
+
+  <script src="//unpkg.com/react-globe.gl"></script>
+  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useState, useEffect } = React;
+
+  const polygonsMaterial = new THREE.MeshLambertMaterial({ color: 'darkslategrey', side: THREE.DoubleSide });
+
+  const World = () => {
+    const [landPolygons, setLandPolygons] = useState([]);
+
+    useEffect(() => {
+      // load data
+      fetch('//unpkg.com/world-atlas/land-110m.json').then(res => res.json())
+        .then(landTopo => {
+          setLandPolygons(topojson.feature(landTopo, landTopo.objects.land).features);
+        });
+    }, []);
+
+    return <Globe
+      backgroundColor="white"
+      showGlobe={false}
+      showAtmosphere={false}
+      polygonsData={landPolygons}
+      polygonCapMaterial={polygonsMaterial}
+      polygonSideColor={() => 'rgba(0, 0, 0, 0)'}
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>
