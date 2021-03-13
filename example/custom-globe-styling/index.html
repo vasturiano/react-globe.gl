@@ -17,19 +17,19 @@
   <script type="text/jsx">
     const { useEffect, useRef } = React;
 
+    // custom globe material
+    const globeMaterial = new THREE.MeshPhongMaterial();
+    globeMaterial.bumpScale = 10;
+    new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
+      globeMaterial.specularMap = texture;
+      globeMaterial.specular = new THREE.Color('grey');
+      globeMaterial.shininess = 15;
+    });
+
     const World = () => {
       const globeEl = useRef();
 
       useEffect(() => {
-        // custom globe material
-        const globeMaterial = globeEl.current.globeMaterial();
-        globeMaterial.bumpScale = 10;
-        new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
-          globeMaterial.specularMap = texture;
-          globeMaterial.specular = new THREE.Color('grey');
-          globeMaterial.shininess = 15;
-        });
-
         setTimeout(() => { // wait for scene to be populated (asynchronously)
           const directionalLight = globeEl.current.scene().children.find(obj3d => obj3d.type === 'DirectionalLight');
           directionalLight && directionalLight.position.set(1, 1, 1); // change light position to see the specularMap's effect
@@ -38,6 +38,7 @@
 
       return <Globe
         ref={globeEl}
+        globeMaterial={globeMaterial}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"

@@ -6,7 +6,6 @@ const Globe = fromKapsule(
   GlobeKapsule,
   {
     methodNames: [ // bind methods
-      'globeMaterial',
       'pauseAnimation',
       'resumeAnimation',
       'pointOfView',

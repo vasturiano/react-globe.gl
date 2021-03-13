@@ -85,13 +85,9 @@ ReactDOM.render(
 | <b>showGlobe</b> | <i>bool</i> | `true` | Getter/setter for whether to show the globe surface itself. |
 | <b>showAtmosphere</b> | <i>bool</i> | `true` | Getter/setter for whether to show a bright halo surrounding the globe, representing the atmosphere. |
 | <b>showGraticules</b> | <i>bool</i> | `false` | Getter/setter for whether to show a graticule grid demarking latitude and longitude lines at every 10 degrees. |
+| <b>globeMaterial</b> | <i>Material</i> | [MeshPhongMaterial](https://threejs.org/docs/#api/en/materials/MeshPhongMaterial) | Getter/setter of the ThreeJS material used to wrap the globe. Can be used for more advanced styling of the globe, like in [this example](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html). |
 | <b>onGlobeClick</b> | <i>func</i> | *-* | Callback function for (left-button) clicks on the globe. The clicked globe coordinates and the event object are included as arguments: `onGlobeClick({ lat, lng }, event)`. |
 | <b>onGlobeRightClick</b> | <i>func</i> | *-* | Callback function for right-clicks on the globe. The clicked globe coordinates and the event object are included as arguments: `onGlobeRightClick({ lat, lng }, event)`. |
-
-| Method | Arguments | Description |
-| --- | :--: | --- |
-| <b>globeMaterial</b> | - | Access the internal ThreeJS [MeshPhongMaterial](https://threejs.org/docs/#api/en/materials/MeshPhongMaterial) used to wrap the globe. Can be used for more advanced styling of the globe, by extending the material with various properties, like in [this example](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html). | - |
-
 
 ### Points Layer
 

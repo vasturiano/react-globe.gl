@@ -52,6 +52,7 @@ export interface GlobeProps extends ConfigOptions {
   showGlobe?: boolean;
   showAtmosphere?: boolean;
   showGraticules?: boolean;
+  globeMaterial?: Material;
   onGlobeClick?: (coords: { lat, lng }, event: MouseEvent) => void;
   onGlobeRightClick?: (coords: { lat, lng }, event: MouseEvent) => void;
 
@@ -211,9 +212,6 @@ export interface GlobeProps extends ConfigOptions {
 }
 
 export interface GlobeMethods {
-  // Globe layer
-  globeMaterial(): MeshPhongMaterial;
-
   // Render control
   pointOfView(): GeoCoords;
   pointOfView(pov: { lat?: number, lng?: number, altitude?: number }, transitionMs?: number): GlobeKapsuleInstance;
