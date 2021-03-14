@@ -157,5 +157,6 @@ export default {
 
   enablePointerInteraction: PropTypes.bool,
   pointerEventsFilter: PropTypes.func,
+  lineHoverPrecision: PropTypes.number,
   onZoom:PropTypes.func
 };

@@ -1409,10 +1409,10 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-globe.gl@^2.18.2:
-  version "2.18.2"
-  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.18.2.tgz#4f9b26e4529f97022a320d4b17fe9ff5242dab53"
-  integrity sha512-a+4QpgBVnJPg3wTck2/lQfHvjfUB/y0zfFruGb83uQjPw+W4gklfehWCVht8Yi/vPkSuUArtF02KY48XX3eBSA==
+globe.gl@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.19.0.tgz#15f207bf19b988e86ef1bfeca5538265ba3294c5"
+  integrity sha512-x/Cr3GH95CxEGq2GC32IISrHR1WDHbMhE0HT5IKAYUVymcEj2ixGaV/ThpHAGXjuPo2hfyjsgGyBDk2ZWVHBnQ==
   dependencies:
     "@tweenjs/tween.js" "^18.6.4"
     accessor-fn "^1.3.0"

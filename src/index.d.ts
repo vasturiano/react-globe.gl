@@ -208,6 +208,7 @@ export interface GlobeProps extends ConfigOptions {
   // Render control
   enablePointerInteraction?: boolean;
   pointerEventsFilter?: (object: Object3D, data?: object) => boolean;
+  lineHoverPrecision?: number;
   onZoom?: (pov: GeoCoords) => void;
 }
 
