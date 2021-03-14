@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Scene, Camera, WebGLRenderer, Object3D, MeshPhongMaterial, Material } from 'three';
+import { Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
