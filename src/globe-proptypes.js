@@ -12,6 +12,7 @@ export default {
   showAtmosphere: PropTypes.bool,
   showGraticules: PropTypes.bool,
   globeMaterial: PropTypes.object,
+  onGlobeReady: PropTypes.func,
   onGlobeClick: PropTypes.func,
   onGlobeRightClick: PropTypes.func,
 

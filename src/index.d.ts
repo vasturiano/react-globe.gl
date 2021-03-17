@@ -53,6 +53,7 @@ export interface GlobeProps extends ConfigOptions {
   showAtmosphere?: boolean;
   showGraticules?: boolean;
   globeMaterial?: Material;
+  onGlobeReady?: () => void;
   onGlobeClick?: (coords: { lat, lng }, event: MouseEvent) => void;
   onGlobeRightClick?: (coords: { lat, lng }, event: MouseEvent) => void;
 
