@@ -50,8 +50,10 @@ export interface GlobeProps extends ConfigOptions {
   globeImageUrl?: string | null;
   bumpImageUrl?: string | null;
   showGlobe?: boolean;
-  showAtmosphere?: boolean;
   showGraticules?: boolean;
+  showAtmosphere?: boolean;
+  atmosphereColor?: string;
+  atmosphereAltitude?: number;
   globeMaterial?: Material;
   onGlobeReady?: () => void;
   onGlobeClick?: (coords: { lat, lng }, event: MouseEvent) => void;
