@@ -252,9 +252,9 @@ ReactDOM.render(
 | <b>labelDotRadius</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.1 | Label object accessor function, attribute or a numeric constant for the radius of the dot marker, in angular degrees. |
 | <b>labelDotOrientation</b> | <i>string</i> or <i>func</i> | `() => 'bottom'` | Label object accessor function or attribute for the orientation of the label if the dot marker is present. Possible values are `right`, `top` and `bottom`. |
 | <b>labelsTransitionDuration</b> | <i>number</i> | 1000 | Duration (ms) of the transition to animate label changes involving position modifications (`lat`, `lng`, `altitude`, `rotation`). A value of `0` will move the labels immediately to their final position. New labels are animated by scaling their size. |
-| <b>onLabelClick</b> | <i>func</i>| *-* | Callback function for label (left-button) clicks. The label object and the event object are included as arguments: `onlabelClick(label, event)`. |
-| <b>onLabelRightClick</b> | <i>func</i>| *-* | Callback function for label right-clicks. The label object and the event object are included as arguments: `onlabelRightClick(label, event)`. |
-| <b>onLabelHover</b> | <i>func</i>| *-* | Callback function for label mouse over events. The label object (or `null` if there's no label under the mouse line of sight) is included as the first argument, and the previous label object (or `null`) as second argument: `onlabelHover(label, prevlabel)`. |
+| <b>onLabelClick</b> | <i>func</i>| *-* | Callback function for label (left-button) clicks. The label object and the event object are included as arguments: `onLabelClick(label, event)`. |
+| <b>onLabelRightClick</b> | <i>func</i>| *-* | Callback function for label right-clicks. The label object and the event object are included as arguments: `onLabelRightClick(label, event)`. |
+| <b>onLabelHover</b> | <i>func</i>| *-* | Callback function for label mouse over events. The label object (or `null` if there's no label under the mouse line of sight) is included as the first argument, and the previous label object (or `null`) as second argument: `onLabelHover(label, prevlabel)`. |
 
 ### Custom Layer
 
