@@ -131,6 +131,16 @@ export default {
   onTileRightClick: PropTypes.func,
   onTileHover: PropTypes.func,
 
+  ringsData: PropTypes.arrayOf(PropTypes.object),
+  ringLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  ringLng: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  ringAltitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  ringColor: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string), PropTypes.func]),
+  ringResolution: PropTypes.number,
+  ringMaxRadius: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  ringPropagationSpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  ringRepeatPeriod: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+
   labelsData: PropTypes.arrayOf(PropTypes.object),
   labelLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   labelLng: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),

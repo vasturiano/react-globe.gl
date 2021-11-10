@@ -80,7 +80,7 @@ export interface GlobeProps extends ConfigOptions {
   arcStartLng?: ObjAccessor<number>;
   arcEndLat?: ObjAccessor<number>;
   arcEndLng?: ObjAccessor<number>;
-  arcColor?: ObjAccessor<string | string[]>;
+  arcColor?: ObjAccessor<string | string[] | ((t: number) => string)>;
   arcAltitude?: ObjAccessor<number | null>;
   arcAltitudeAutoScale?: ObjAccessor<number>;
   arcStroke?: ObjAccessor<number | null>;
@@ -119,7 +119,7 @@ export interface GlobeProps extends ConfigOptions {
   pathPointLng?: Accessor<any, number>;
   pathPointAlt?: Accessor<any, number>;
   pathResolution?: number;
-  pathColor?: ObjAccessor<string | string[]>;
+  pathColor?: ObjAccessor<string | string[] | ((t: number) => string)>;
   pathStroke?: ObjAccessor<number | null>;
   pathDashLength?: ObjAccessor<number>;
   pathDashGap?: ObjAccessor<number>;
@@ -178,6 +178,17 @@ export interface GlobeProps extends ConfigOptions {
   onTileClick?: (tile: object, event: MouseEvent) => void;
   onTileRightClick?: (tile: object, event: MouseEvent) => void;
   onTileHover?: (tile: object | null, prevTile: object | null) => void;
+
+  // Rings Layer
+  ringsData?: object[];
+  ringLat?: ObjAccessor<number>;
+  ringLng?: ObjAccessor<number>;
+  ringAltitude?: ObjAccessor<number>;
+  ringColor?: ObjAccessor<string | string[] | ((t: number) => string)>;
+  ringResolution?: number;
+  ringMaxRadius?: ObjAccessor<number>;
+  ringPropagationSpeed?: ObjAccessor<number>;
+  ringRepeatPeriod?: ObjAccessor<number>;
 
   // Labels layer
   labelsData?: object[];

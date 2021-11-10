@@ -29,6 +29,8 @@ Check out the examples:
 * [Map Labels](https://vasturiano.github.io/react-globe.gl/example/world-cities/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-cities/index.html))
 * [Hexed Country Polygons](https://vasturiano.github.io/react-globe.gl/example/hexed-polygons/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/hexed-polygons/index.html))
 * [Tiles](https://vasturiano.github.io/react-globe.gl/example/tiles/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/tiles/index.html))
+* [Ripple Rings](https://vasturiano.github.io/react-globe.gl/example/random-rings/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-rings/index.html))
+* [Emit Arcs on Click](https://vasturiano.github.io/react-globe.gl/example/emit-arcs-on-click/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/emit-arcs-on-click/index.html))
 * [Solar Terminator](https://vasturiano.github.io/react-globe.gl/example/solar-terminator/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/solar-terminator/index.html))
 * [Custom Globe Styling](https://vasturiano.github.io/react-globe.gl/example/custom-globe-styling/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))
@@ -36,6 +38,7 @@ Check out the examples:
 * [Recent Earthquakes](https://vasturiano.github.io/react-globe.gl/example/earthquakes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/earthquakes/index.html))
 * [World Volcanoes](https://vasturiano.github.io/react-globe.gl/example/volcanoes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/volcanoes/index.html))
 * [US outbound international airline routes](https://vasturiano.github.io/react-globe.gl/example/airline-routes/us-international-outbound.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/us-international-outbound.html))
+* [Earth Shield](https://vasturiano.github.io/react-globe.gl/example/earth-shield/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/earth-shield/index.html))
 * [Submarine Cables](https://vasturiano.github.io/react-globe.gl/example/submarine-cables/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/submarine-cables/index.html))
 * [Moon Landing Sites](https://vasturiano.github.io/react-globe.gl/example/moon-landing-sites/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/moon-landing-sites/index.html))
 
@@ -128,7 +131,7 @@ ReactDOM.render(
 | <b>arcStartLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `startLng` | Arc object accessor function, attribute or a numeric constant for the line's start longitude coordinate. |
 | <b>arcEndLat</b> | <i>number</i>, <i>string</i> or <i>func</i> | `endLat` | Arc object accessor function, attribute or a numeric constant for the line's end latitude coordinate. |
 | <b>arcEndLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `endLng` | Arc object accessor function, attribute or a numeric constant for the line's end longitude coordinate. |
-| <b>arcColor</b> | <i>string</i>, <i>[string, ...]</i> or <i>func</i> | `() => '#ffffaa'` | Arc object accessor function or attribute for the line's color. Also supports color gradients by passing an array of colors. |
+| <b>arcColor</b> | <i>string</i>, <i>[string, ...]</i> or <i>func</i> | `() => '#ffffaa'` | Arc object accessor function or attribute for the line's color. Also supports color gradients by passing an array of colors, or a color interpolator function. |
 | <b>arcAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i>| `null` |Arc object accessor function, attribute or a numeric constant for the arc's maximum altitude (ocurring at the half-way distance between the two points) in terms of globe radius units (`0` = 0 altitude (ground line), `1` = globe radius). If a value of `null` or `undefined` is used, the altitude is automatically set proportionally to the distance between the two points, according to the scale set in `arcAltitudeAutoScale`. |
 | <b>arcAltitudeAutoScale</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.5 | Arc object accessor function, attribute or a numeric constant for the scale of the arc's automatic altitude, in terms of units of the great-arc distance between the two points. A value of `1` indicates the arc should be as high as its length on the ground. Only applicable if `arcAltitude` is not set. |
 | <b>arcStroke</b> | <i>number</i>, <i>string</i> or <i>func</i>| `null` | Arc object accessor function, attribute or a numeric constant for the line's diameter, in angular degrees. A value of `null` or `undefined` will render a [ThreeJS Line](https://threejs.org/docs/#api/objects/Line) whose width is constant (`1px`) regardless of the camera distance. Otherwise, a [TubeGeometry](https://threejs.org/docs/#api/en/geometries/TubeGeometry) is used. |
@@ -181,7 +184,7 @@ ReactDOM.render(
 | <b>pathPointLng | <i>number</i>, <i>string</i> or <i>func</i> | `arr => arr[1]` | Path point object accessor function, attribute or a numeric constant for the longitude coordinate. |
 | <b>pathPointAlt | <i>number</i>, <i>string</i> or <i>func</i> | 0.001 | Path point object accessor function, attribute or a numeric constant for the point altitude, in terms of globe radius units (`0` = 0 altitude (ground), `1` = globe radius). |
 | <b>pathResolution | <i>number</i> | 2 | The path's angular resolution, in lat/lng degrees. If the ground distance (excluding altitude) between two adjacent path points is larger than this value, the line segment will be interpolated in order to approximate the curvature of the sphere surface. Lower values yield more perfectly curved lines, at the cost of performance. |
-| <b>pathColor | <i>string</i>, <i>[string, ...]</i> or <i>func</i> | `() => '#ffffaa'` | Path object accessor function or attribute for the line's color. Also supports color gradients by passing an array of colors. Transparent colors are not supported in Fat Lines with set width. |
+| <b>pathColor | <i>string</i>, <i>[string, ...]</i> or <i>func</i> | `() => '#ffffaa'` | Path object accessor function or attribute for the line's color. Also supports color gradients by passing an array of colors, or a color interpolator function. Transparent colors are not supported in Fat Lines with set width. |
 | <b>pathStroke | <i>number</i>, <i>string</i> or <i>func</i> | `null` | Path object accessor function, attribute or a numeric constant for the line's diameter, in angular degrees. A value of `null` or `undefined` will render a [ThreeJS Line](https://threejs.org/docs/#api/objects/Line) whose width is constant (`1px`) regardless of the camera distance. Otherwise, a [FatLine](https://github.com/vasturiano/three-fatline) is used. |
 | <b>pathDashLength | <i>number</i>, <i>string</i> or <i>func</i> | 1 | Path object accessor function, attribute or a numeric constant for the length of the dashed segments in the path line, in terms of relative length of the whole line (`1` = full line length). |
 | <b>pathDashGap | <i>number</i>, <i>string</i> or <i>func</i> | 0 | Path object accessor function, attribute or a numeric constant for the length of the gap between dash segments, in terms of relative line length. |
@@ -260,6 +263,24 @@ ReactDOM.render(
 | <b>onTileClick</b> | <i>func</i> | *-* | Callback function for tile (left-button) clicks. The tile object and the event object are included as arguments: `onTileClick(tile, event)`. |
 | <b>onTileRightClick</b> | <i>func</i> | *-* | Callback function for tile right-clicks. The tile object and the event object are included as arguments: `onTileRightClick(tile, event)`. |
 | <b>onTileHover</b> | <i>func</i> | *-* | Callback function for tile mouse over events. The tile object (or `null` if there's no tile under the mouse line of sight) is included as the first argument, and the previous tile object (or `null`) as second argument: `onTileHover(tile, prevTile)`. |
+
+### Rings Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/random-rings/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/random-rings/preview.png"></a>
+</p>
+
+| Prop | Type | Default | Description |
+| --- | :--: | :--: | --- |
+| <b>ringsData</b> | <i>array</i> | `[]` | List of self-propagating ripple rings to represent in the rings map layer. Each data point is displayed as an animated set of concentric circles that propagate outwards from (or inwards to) a central point through the spherical surface. |
+| <b>ringLat</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lat` | Ring object accessor function, attribute or a numeric constant for each circle's center latitude coordinate. |
+| <b>ringLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lng` | Ring object accessor function, attribute or a numeric constant for each circle's center longitude coordinate. |
+| <b>ringAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.0015 | Ring object accessor function, attribute or a numeric constant for the circle's altitude in terms of globe radius units. |
+| <b>ringColor</b> | <i>string</i>, <i>[string, ...]</i> or <i>func</i> | `() => '#ffffaa'` | Ring object accessor function or attribute for the stroke color of each ring. Also supports radial color gradients by passing an array of colors, or a color interpolator function. |
+| <b>ringResolution</b> | <i>number</i> | 64 | Geometric resolution of each circle, expressed in how many slice segments to divide the circumference. Higher values yield smoother circles. |
+| <b>ringMaxRadius</b> | <i>number</i>, <i>string</i> or <i>func</i> | 2 | Ring object accessor function, attribute or a numeric constant for the maximum outer radius of the circles, at which the rings stop propagating and are removed. Defined in angular degrees. |
+| <b>ringPropagationSpeed</b> | <i>number</i>, <i>string</i> or <i>func</i> | 1 | Ring object accessor function, attribute or a numeric constant for the propagation velocity of the rings, defined in degrees/second. Setting a negative value will invert the direction and cause the rings to propagate inwards from the `maxRadius`. |
+| <b>ringRepeatPeriod</b> | <i>number</i>, <i>string</i> or <i>func</i> | 700 | Ring object accessor function, attribute or a numeric constant for the interval of time (in ms) to wait between consecutive auto-generated concentric circles. A value less or equal than `0` will disable the repetition and emit a single ring. |
 
 ### Labels Layer
 
