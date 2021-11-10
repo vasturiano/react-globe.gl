@@ -94,6 +94,10 @@ ReactDOM.render(
 
 ### Points Layer
 
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/basic/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/basic/preview.png"></a>
+</p>
+
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
 | <b>pointsData</b> | <i>array</i> | `[]` | List of points to represent in the points map layer. Each point is displayed as a cylindrical 3D object rising perpendicularly from the surface of the globe. |
@@ -111,6 +115,10 @@ ReactDOM.render(
 | <b>onPointHover</b> | <i>func</i>| *-* | Callback function for point mouse over events. The point object (or `null` if there's no point under the mouse line of sight) is included as the first argument, and the previous point object (or `null`) as second argument: `onPointHover(point, prevPoint)`. Only works if `pointsMerge` is disabled. |
 
 ### Arcs Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/random-arcs/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/random-arcs/preview.png"></a>
+</p>
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
@@ -137,6 +145,10 @@ ReactDOM.render(
 
 ### Polygons Layer
 
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/choropleth-countries/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/choropleth-countries/preview.png"></a>
+</p>
+
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
 | <b>polygonsData</b> | <i>array</i> | `[]` | List of polygon shapes to represent in the polygons map layer. Each polygon is displayed as a shaped cone that extrudes from the surface of the globe. |
@@ -155,6 +167,10 @@ ReactDOM.render(
 | <b>onPolygonHover</b> | <i>func</i> | *-* | Callback function for polygon mouse over events. The polygon object (or `null` if there's no polygon under the mouse line of sight) is included as the first argument, and the previous polygon object (or `null`) as second argument: `onPolygonHover(polygon, prevPolygon)`. |
 
 ### Paths Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/random-paths/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/random-paths/preview.png"></a>
+</p>
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
@@ -178,6 +194,10 @@ ReactDOM.render(
 
 ### Hex Bin Layer
 
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/earthquakes/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/earthquakes/preview.png"></a>
+</p>
+
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
 | <b>hexBinPointsData</b> | <i>array</i> | `[]` | List of points to aggregate using the hex bin map layer. Each point is added to an hexagonal prism 3D object that represents all the points within a tesselated portion of the space. |
@@ -199,6 +219,10 @@ ReactDOM.render(
 
 ### Hexed Polygons Layer
 
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/hexed-polygons/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/hexed-polygons/preview.png"></a>
+</p>
+
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
 | <b>hexPolygonsData</b> | <i>array</i> | `[]` | List of polygon shapes to represent in the hexed polygons map layer. Each polygon is displayed as a tesselated group of hexagons that approximate the polygons shape according to the resolution specified in `hexPolygonResolution`. |
@@ -215,6 +239,10 @@ ReactDOM.render(
 | <b>onHexPolygonHover</b> | <i>func</i> | *-* | Callback function for hexed polygon mouse over events. The polygon object (or `null` if there's no polygon under the mouse line of sight) is included as the first argument, and the previous polygon object (or `null`) as second argument: `onHexPolygonHover(polygon, prevPolygon)`. |
 
 ### Tiles Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/tiles/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/tiles/preview.png"></a>
+</p>
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
@@ -234,6 +262,10 @@ ReactDOM.render(
 | <b>onTileHover</b> | <i>func</i> | *-* | Callback function for tile mouse over events. The tile object (or `null` if there's no tile under the mouse line of sight) is included as the first argument, and the previous tile object (or `null`) as second argument: `onTileHover(tile, prevTile)`. |
 
 ### Labels Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/world-cities/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/world-cities/preview.png"></a>
+</p>
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
@@ -257,6 +289,10 @@ ReactDOM.render(
 | <b>onLabelHover</b> | <i>func</i>| *-* | Callback function for label mouse over events. The label object (or `null` if there's no label under the mouse line of sight) is included as the first argument, and the previous label object (or `null`) as second argument: `onLabelHover(label, prevlabel)`. |
 
 ### Custom Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/custom-layer/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/custom-layer/preview.png"></a>
+</p>
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
