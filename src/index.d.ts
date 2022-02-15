@@ -56,8 +56,8 @@ export interface GlobeProps extends ConfigOptions {
   atmosphereAltitude?: number;
   globeMaterial?: Material;
   onGlobeReady?: () => void;
-  onGlobeClick?: (coords: { lat, lng }, event: MouseEvent) => void;
-  onGlobeRightClick?: (coords: { lat, lng }, event: MouseEvent) => void;
+  onGlobeClick?: (coords: { lat: number, lng: number }, event: MouseEvent) => void;
+  onGlobeRightClick?: (coords: { lat: number, lng: number }, event: MouseEvent) => void;
 
   // Points layer
   pointsData?: object[];
@@ -70,8 +70,8 @@ export interface GlobeProps extends ConfigOptions {
   pointsMerge?: boolean;
   pointsTransitionDuration?: number;
   pointLabel?: ObjAccessor<string>;
-  onPointClick?: (point: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onPointRightClick?: (point: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onPointClick?: (point: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onPointRightClick?: (point: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPointHover?: (point: object | null, prevPoint: object | null) => void;
 
   // Arcs layer
@@ -92,8 +92,8 @@ export interface GlobeProps extends ConfigOptions {
   arcDashAnimateTime?: ObjAccessor<number>;
   arcsTransitionDuration?: number;
   arcLabel?: ObjAccessor<string>;
-  onArcClick?: (arc: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onArcRightClick?: (arc: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onArcClick?: (arc: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onArcRightClick?: (arc: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onArcHover?: (arc: object | null, prevArc: object | null) => void;
 
   // Polygons layer
@@ -108,8 +108,8 @@ export interface GlobeProps extends ConfigOptions {
   polygonCapCurvatureResolution?: ObjAccessor<number>;
   polygonsTransitionDuration?: number;
   polygonLabel?: ObjAccessor<string>;
-  onPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onPolygonRightClick?: (polygon: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onPolygonRightClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPolygonHover?: (polygon: object | null, prevPolygon: object | null) => void;
 
   // Paths layer
@@ -127,8 +127,8 @@ export interface GlobeProps extends ConfigOptions {
   pathDashAnimateTime?: ObjAccessor<number>;
   pathTransitionDuration?: number;
   pathLabel?: ObjAccessor<string>;
-  onPathClick?: (path: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onPathRightClick?: (path: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onPathClick?: (path: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onPathRightClick?: (path: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPathHover?: (path: object | null, prevPath: object | null) => void;
 
   // Hex Bin layer
@@ -145,8 +145,8 @@ export interface GlobeProps extends ConfigOptions {
   hexBinMerge?: boolean;
   hexTransitionDuration?: number;
   hexLabel?: HexBinAccessor<string>;
-  onHexClick?: (hex: HexBin, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onHexRightClick?: (hex: HexBin, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onHexClick?: (hex: HexBin, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onHexRightClick?: (hex: HexBin, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onHexHover?: (hex: HexBin | null, prevHex: HexBin | null) => void;
 
   // Hexed Polygons layer
@@ -159,8 +159,8 @@ export interface GlobeProps extends ConfigOptions {
   hexPolygonCurvatureResolution?: ObjAccessor<number>;
   hexPolygonsTransitionDuration?: number;
   hexPolygonLabel?: ObjAccessor<string>;
-  onHexPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onHexPolygonRightClick?: (polygon: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onHexPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onHexPolygonRightClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onHexPolygonHover?: (polygon: object | null, prevPolygon: object | null) => void;
 
   // Tiles layer
@@ -175,8 +175,8 @@ export interface GlobeProps extends ConfigOptions {
   tileCurvatureResolution?: ObjAccessor<number>;
   tilesTransitionDuration?: number;
   tileLabel?: ObjAccessor<string>;
-  onTileClick?: (tile: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onTileRightClick?: (tile: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onTileClick?: (tile: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onTileRightClick?: (tile: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onTileHover?: (tile: object | null, prevTile: object | null) => void;
 
   // Rings Layer
@@ -206,8 +206,8 @@ export interface GlobeProps extends ConfigOptions {
   labelDotOrientation?: ObjAccessor<LabelOrientation>;
   labelsTransitionDuration?: number;
   labelLabel?: ObjAccessor<string>;
-  onLabelClick?: (label: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onLabelRightClick?: (label: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onLabelClick?: (label: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onLabelRightClick?: (label: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onLabelHover?: (label: object | null, prevLabel: object | null) => void;
 
   // Custom layer
@@ -215,8 +215,8 @@ export interface GlobeProps extends ConfigOptions {
   customThreeObject?: Object3D | string | ((d: object, globeRadius: number) => Object3D);
   customThreeObjectUpdate?: string | ((obj: Object3D, objData: object, globeRadius: number) => void);
   customLayerLabel?: ObjAccessor<string>;
-  onCustomLayerClick?: (obj: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
-  onCustomLayerRightClick?: (obj: object, event: MouseEvent, coords: { lat, lng, altitude }) => void;
+  onCustomLayerClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onCustomLayerRightClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onCustomLayerHover?: (obj: object | null, prevObj: object | null) => void;
 
   // Render control
