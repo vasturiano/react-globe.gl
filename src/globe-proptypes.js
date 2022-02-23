@@ -160,6 +160,16 @@ export default {
   onLabelRightClick: PropTypes.func,
   onLabelHover: PropTypes.func,
 
+  objectsData: PropTypes.arrayOf(PropTypes.object),
+  objectLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  objectLng: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  objectAltitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  objectThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
+  objectLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onObjectClick: PropTypes.func,
+  onObjectRightClick: PropTypes.func,
+  onObjectHover: PropTypes.func,
+
   customLayerData: PropTypes.arrayOf(PropTypes.object),
   customThreeObject: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.func]),
   customThreeObjectUpdate: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

@@ -210,10 +210,21 @@ export interface GlobeProps extends ConfigOptions {
   onLabelRightClick?: (label: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onLabelHover?: (label: object | null, prevLabel: object | null) => void;
 
+  // Objects layer
+  objectsData?: object[];
+  objectLat?: ObjAccessor<number>;
+  objectLng?: ObjAccessor<number>;
+  objectAltitude?: ObjAccessor<number>;
+  objectThreeObject?: Object3D | string | ((d: object) => Object3D);
+  objectLabel?: ObjAccessor<string>;
+  onObjectClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onObjectRightClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onObjectHover?: (obj: object | null, prevObj: object | null) => void;
+
   // Custom layer
   customLayerData?: object[];
-  customThreeObject?: Object3D | string | ((d: object, globeRadius: number) => Object3D);
-  customThreeObjectUpdate?: string | ((obj: Object3D, objData: object, globeRadius: number) => void);
+  customThreeObject?: Object3D | string | ((d: object) => Object3D);
+  customThreeObjectUpdate?: string | ((obj: Object3D, objData: object) => void);
   customLayerLabel?: ObjAccessor<string>;
   onCustomLayerClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onCustomLayerRightClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
@@ -239,6 +250,7 @@ export interface GlobeMethods {
   controls(): object;
 
   // Utilities
+  getGlobeRadius(): number;
   getCoords(lat: number, lng: number, altitude?: number): CartesianCoords;
   getScreenCoords(lat: number, lng: number, altitude?: number): ScreenCoords;
   toGeoCoords(coords: CartesianCoords): GeoCoords;

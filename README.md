@@ -40,6 +40,7 @@ Check out the examples:
 * [World Volcanoes](https://vasturiano.github.io/react-globe.gl/example/volcanoes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/volcanoes/index.html))
 * [US outbound international airline routes](https://vasturiano.github.io/react-globe.gl/example/airline-routes/us-international-outbound.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/us-international-outbound.html))
 * [Earth Shield](https://vasturiano.github.io/react-globe.gl/example/earth-shield/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/earth-shield/index.html))
+* [Satellites](https://vasturiano.github.io/react-globe.gl/example/satellites/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/satellites/index.html))
 * [Submarine Cables](https://vasturiano.github.io/react-globe.gl/example/submarine-cables/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/submarine-cables/index.html))
 * [Moon Landing Sites](https://vasturiano.github.io/react-globe.gl/example/moon-landing-sites/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/moon-landing-sites/index.html))
 
@@ -310,6 +311,24 @@ ReactDOM.render(
 | <b>onLabelRightClick</b> | <i>func</i>| *-* | Callback function for label right-clicks. The label object, the event object and the clicked coordinates are included as arguments: `onLabelRightClick(label, event, { lat, lng, altitude })`. |
 | <b>onLabelHover</b> | <i>func</i>| *-* | Callback function for label mouse over events. The label object (or `null` if there's no label under the mouse line of sight) is included as the first argument, and the previous label object (or `null`) as second argument: `onLabelHover(label, prevlabel)`. |
 
+### Objects Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/satellites/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/satellites/preview.png"></a>
+</p>
+
+| Prop | Type | Default | Description |
+| --- | :--: | :--: | --- |
+| <b>objectsData</b> | <i>array</i> | `[]` | Getter/setter for the list of custom 3D objects to represent in the objects layer. Each object is rendered according to the `objectThreeObject` method. |
+| <b>objectLabel</b> | <i>string</i> or <i>func</i> | `name` | Object accessor function or attribute for its own tooltip label. Supports plain text or HTML content. |
+| <b>objectLat</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lat` | Object accessor function, attribute or a numeric constant for the latitude coordinate of the object's position. |
+| <b>objectLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lng` | Object accessor function, attribute or a numeric constant for the longitude coordinate of the object's position. |
+| <b>objectAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.01 | Object accessor function, attribute or a numeric constant for the altitude coordinate of the object's position, in terms of globe radius units. |
+| <b>objectThreeObject</b> | <i>Object3d</i>, <i>string</i> or <i>func</i> | *A yellow sphere* | Object accessor function or attribute for defining a custom 3d object to render as part of the objects map layer. Should return an instance of [ThreeJS Object3d](https://threejs.org/docs/index.html#api/core/Object3D). |
+| <b>onObjectClick</b> | <i>func</i> | *-* | Callback function for object (left-button) clicks. The object itself, the event and the clicked coordinates are included as arguments: `onObjectClick(obj, event, { lat, lng, altitude })`. |
+| <b>onObjectRightClick</b> | <i>func</i> | *-* | Callback function for object right-clicks. The object itself, the event and the clicked coordinates are included as arguments: `onObjectRightClick(obj, event, { lat, lng, altitude })`. |
+| <b>onObjectHover</b> | <i>func</i> | *-* | Callback function for object mouse over events. The object itself (or `null` if there's no object under the mouse line of sight) is included as the first argument, and the previous object (or `null`) as second argument: `onObjectHover(obj, prevObj)`. |
+
 ### Custom Layer
 
 <p align="center">
@@ -320,8 +339,8 @@ ReactDOM.render(
 | --- | :--: | :--: | --- |
 | <b>customLayerData</b> | <i>array</i> | `[]` | List of items to represent in the custom map layer. Each item is rendered according to the `customThreeObject` method. |
 | <b>customLayerLabel</b> | <i>string</i> or <i>func</i> | `name` | Object accessor function or attribute for label (shown as tooltip). Supports plain text or HTML content. |
-| <b>customThreeObject</b> | <i>Object3d</i>, <i>string</i> or <i>func</i>| *-* |Object accessor function or attribute for generating a custom 3d object to render as part of the custom map layer. Should return an instance of [ThreeJS Object3d](https://threejs.org/docs/index.html#api/core/Object3D). The callback method's signature includes the object's data as well as the globe radius: `customThreeObject((objData, globeRadius) => { ... })`. |
-| <b>customThreeObjectUpdate</b> | <i>string</i> or <i>func</i>| *-* |Object accessor function or attribute for updating an existing custom 3d object with new data. This can be used for performance improvement on data updates as the objects don't need to be removed and recreated at each update. The callback method's signature includes the object to be update, its new data and the globe radius: `customThreeObjectUpdate((obj, objData, globeRadius) => { ... })`. |
+| <b>customThreeObject</b> | <i>Object3d</i>, <i>string</i> or <i>func</i>| *-* |Object accessor function or attribute for generating a custom 3d object to render as part of the custom map layer. Should return an instance of [ThreeJS Object3d](https://threejs.org/docs/index.html#api/core/Object3D). |
+| <b>customThreeObjectUpdate</b> | <i>string</i> or <i>func</i>| *-* |Object accessor function or attribute for updating an existing custom 3d object with new data. This can be used for performance improvement on data updates as the objects don't need to be removed and recreated at each update. The callback method's signature includes the object to be update and its new data: `customThreeObjectUpdate((obj, objData) => { ... })`. |
 | <b>onCustomLayerClick</b> | <i>func</i>| *-* | Callback function for custom object (left-button) clicks. The custom object, the event object and the clicked coordinates are included as arguments: `onCustomLayerClick(obj, event, { lat, lng, altitude })`. |
 | <b>onCustomLayerRightClick</b> | <i>func</i>| *-* | Callback function for custom object right-clicks. The custom object, the event object and the clicked coordinates are included as arguments: `onCustomLayerRightClick(obj, event, { lat, lng, altitude })`. |
 | <b>onCustomLayerHover</b> | <i>func</i>| *-* | Callback function for custom object mouse over events. The custom object (or `null` if there's no object under the mouse line of sight) is included as the first argument, and the previous custom object (or `null`) as second argument: `onCustomLayerHover(obj, prevObj)`. |
@@ -351,6 +370,7 @@ ReactDOM.render(
 
 | Method | Arguments | Description |
 | --- | :--: | --- |
+| <b>getGlobeRadius</b> | *-* | Returns the cartesian distance of a globe radius in absolute spatial units. |
 | <b>getCoords</b> | <i>lat</i>, <i>lng</i> [,<i>altitude</i>=`0`] | Utility method to translate spherical coordinates to cartesian. Given a pair of latitude/longitude coordinates and optionally altitude (in terms of globe radius units), returns the equivalent `{x, y, z}` cartesian spatial coordinates. |
 | <b>getScreenCoords</b> | <i>lat</i>, <i>lng</i> [,<i>altitude</i>=`0`] | Utility method to translate spherical coordinates to the viewport domain. Given a pair of latitude/longitude coordinates and optionally altitude (in terms of globe radius units), returns the current equivalent `{x, y}` in viewport coordinates. |
 | <b>toGeoCoords</b> | { <i>x</i>, <i>y</i>, <i>z</i> } | Utility method to translate cartesian coordinates to the geographic domain. Given a set of 3D cartesian coordinates `{x, y, z}`, returns the equivalent `{lat, lng, altitude}` spherical coordinates. Altitude is defined in terms of globe radius units. |

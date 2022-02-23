@@ -14,6 +14,7 @@ const Globe = fromKapsule(
       'renderer',
       'postProcessingComposer',
       'controls',
+      'getGlobeRadius',
       'getCoords',
       'getScreenCoords',
       'toGeoCoords',
