@@ -33,8 +33,8 @@
   const { useState, useEffect, useRef, useMemo } = React;
 
   const EARTH_RADIUS_KM = 6371; // km
-  const SAT_SIZE = 100; // km
-  const TIME_STEP = 4 * 1000; // per frame
+  const SAT_SIZE = 80; // km
+  const TIME_STEP = 3 * 1000; // per frame
 
   const World = () => {
     const globeEl = useRef();
@@ -53,10 +53,10 @@
     useEffect(() => {
       // load satellite data
       fetch('//unpkg.com/globe.gl/example/datasets/space-track-leo.txt').then(r => r.text()).then(rawData => {
-        const tleData = rawData.split('\n0').map(tle => tle.split('\n'));
+        const tleData = rawData.replace(/\r/g, '').split(/\n(?=[^12])/).map(tle => tle.split('\n'));
         const satData = tleData.map(([name, ...tle]) => ({
           satrec: satellite.twoline2satrec(...tle),
-          name: name.split(' ').slice(1).join(' '),
+          name: name.trim().replace(/^0 /, '')
         }));
         setSatData(satData);
       });
