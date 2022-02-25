@@ -974,9 +974,9 @@
     "@rollup/pluginutils" "^3.1.0"
 
 "@rollup/plugin-commonjs@^21.0.1":
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-21.0.1.tgz#1e57c81ae1518e4df0954d681c642e7d94588fee"
-  integrity sha512-EA+g22lbNJ8p5kuZJUYyhhDK7WgJckW5g4pNN7n4mAFUM96VuwUnNT3xr2Db2iCZPI1pJPbGyfT5mS9T1dHfMg==
+  version "21.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-21.0.2.tgz#0b9c539aa1837c94abfaf87945838b0fc8564891"
+  integrity sha512-d/OmjaLVO4j/aQX69bwpWPpbvI3TJkQuxoAk7BH8ew1PyoMBLTOuvJTjzG8oEoW7drIIqB0KCJtfFLu/2GClWg==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     commondir "^1.0.1"
@@ -1051,9 +1051,9 @@
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
 "@types/node@*":
-  version "17.0.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.19.tgz#726171367f404bfbe8512ba608a09ebad810c7e6"
-  integrity sha512-PfeQhvcMR4cPFVuYfBN4ifG7p9c+Dlh3yUZR6k+5yQK7wX3gDgVxBly4/WkBRs9x4dmcy1TVl08SY67wwtEvmA==
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
+  integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
 "@types/prop-types@*":
   version "15.7.4"
@@ -1357,9 +1357,9 @@ earcut@2:
   integrity sha512-iRDI1QeCQIhMCZk48DRDMVgQSSBDmbzzNhnxIo+pwx3swkfjMh6vh0nWLq1NdvGHLKH6wIrAM3vQWeTj6qeoug==
 
 electron-to-chromium@^1.4.71:
-  version "1.4.71"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.71.tgz#17056914465da0890ce00351a3b946fd4cd51ff6"
-  integrity sha512-Hk61vXXKRb2cd3znPE9F+2pLWdIOmP7GjiTj45y6L3W/lO+hSnUSUhq+6lEaERWBdZOHbk2s3YV5c9xVl3boVw==
+  version "1.4.73"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.73.tgz#422f6f514315bcace9615903e4a9b6b9fa283137"
+  integrity sha512-RlCffXkE/LliqfA5m29+dVDPB2r72y2D2egMMfIy3Le8ODrxjuZNVo4NIC2yPL01N4xb4nZQLwzi6Z5tGIGLnA==
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -1445,9 +1445,9 @@ globals@^11.1.0:
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
 globe.gl@^2.25:
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.25.0.tgz#85bf5ae1b493b4988da29f2d22c66b1ce945d15b"
-  integrity sha512-dIl84+5a/pdbaTk604IyfPXmy/fxXWraYNV8G6mjuotGDZs575NANnz4NB3YzH/qqgWKEr/OVUKqzJbVLSKgSw==
+  version "2.25.2"
+  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.25.2.tgz#5ed0a19d3b9b74aefe0c385451582fa493e04bcf"
+  integrity sha512-SUWU96kth0iJeHCe86BVNSnJctkybq24i4BIcO/Xef4J4KHUjeg7sJ/CTGM8nZq+TmCb4pDyffWbg9Z7FXejgA==
   dependencies:
     "@tweenjs/tween.js" "^18.6"
     accessor-fn "1"
@@ -1908,9 +1908,9 @@ three-geojson-geometry@^1.1:
     earcut "2"
 
 three-globe@^2.23:
-  version "2.23.2"
-  resolved "https://registry.yarnpkg.com/three-globe/-/three-globe-2.23.2.tgz#40af51b441154f45f9d55c50abf09bd8ba286cc9"
-  integrity sha512-t9MuVtA32EhIL/ZYtGTxxfYsC23ayVmJppiYFWWUK2iqfV55qUcjORMC65Ef9VY4CIns1UhRQs0xuuQohEhzYg==
+  version "2.23.4"
+  resolved "https://registry.yarnpkg.com/three-globe/-/three-globe-2.23.4.tgz#d62c296e5752393352219fca7d3ce1ec71c91d7d"
+  integrity sha512-I5yZIgPqMfcz129wGk1/PDYhWcrxJq4txd/FwYyHHeCqMncxDxH+U+e9O+QymrkApOxP4i8QjGdYoJFfEFbIBQ==
   dependencies:
     "@tweenjs/tween.js" "18"
     accessor-fn "1"
@@ -1939,9 +1939,9 @@ three-render-objects@^1.26:
     polished "4"
 
 "three@>=0.118 <1":
-  version "0.137.5"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.137.5.tgz#a1e34bedd0412f2d8797112973dfadac78022ce6"
-  integrity sha512-rTyr+HDFxjnN8+N/guZjDgfVxgHptZQpf6xfL/Mo7a5JYIFwK6tAq3bzxYYB4Ae0RosDZlDuP+X5aXDXz+XnHQ==
+  version "0.138.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.138.0.tgz#cd0cbeb621a5826c65e49e06705d0bb9f6c13ca6"
+  integrity sha512-xM/WwUd53ClkbHFrftW29aIzMVvyhj4rSZmIVgn6hZ/kYB7aMjDD8FFy4VJamygXSrldJuOgEJuaI+E+8mt/KA==
 
 tinycolor2@^1.4:
   version "1.4.2"
