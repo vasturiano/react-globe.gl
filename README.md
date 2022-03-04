@@ -20,7 +20,7 @@ React bindings for the [globe.gl](https://github.com/vasturiano/globe.gl) UI com
 
 A React component to represent data visualization layers on a 3-dimensional globe in a spherical projection, using [ThreeJS](https://github.com/mrdoob/three.js/)/WebGL for 3D rendering.
 
-Check out the examples:
+#### Check out the examples:
 * [Basic](https://vasturiano.github.io/react-globe.gl/example/basic/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/basic/index.html))
 * [Arc Links](https://vasturiano.github.io/react-globe.gl/example/random-arcs/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-arcs/index.html))
 * [Highlight links](https://vasturiano.github.io/react-globe.gl/example/airline-routes/highlight-links.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/airline-routes/highlight-links.html))
@@ -29,6 +29,7 @@ Check out the examples:
 * [Hollow Globe](https://vasturiano.github.io/react-globe.gl/example/hollow-globe/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/hollow-globe/index.html))
 * [Path Lines](https://vasturiano.github.io/react-globe.gl/example/random-paths/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-paths/index.html))
 * [Map Labels](https://vasturiano.github.io/react-globe.gl/example/world-cities/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-cities/index.html))
+* [HTML Markers](https://vasturiano.github.io/react-globe.gl/example/html-markers/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/html-markers/index.html))
 * [Hexed Country Polygons](https://vasturiano.github.io/react-globe.gl/example/hexed-polygons/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/hexed-polygons/index.html))
 * [Tiles](https://vasturiano.github.io/react-globe.gl/example/tiles/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/tiles/index.html))
 * [Ripple Rings](https://vasturiano.github.io/react-globe.gl/example/random-rings/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-rings/index.html))
@@ -45,7 +46,6 @@ Check out the examples:
 * [Satellites](https://vasturiano.github.io/react-globe.gl/example/satellites/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/satellites/index.html))
 * [Submarine Cables](https://vasturiano.github.io/react-globe.gl/example/submarine-cables/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/submarine-cables/index.html))
 * [Moon Landing Sites](https://vasturiano.github.io/react-globe.gl/example/moon-landing-sites/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/moon-landing-sites/index.html))
-
 
 ## Quick start
 
@@ -72,7 +72,24 @@ ReactDOM.render(
 
 ## API reference
 
-### Container layout
+* [Container Layout](#container-layout)
+* [Globe Layer](#globe-layer)
+* [Points Layer](#points-layer)
+* [Arcs Layer](#arcs-layer)
+* [Polygons Layer](#polygons-layer)
+* [Paths Layer](#paths-layer)
+* [Hex Bin Layer](#hex-bin-layer)
+* [Hexed Polygons Layer](#hexed-polygons-layer)
+* [Tiles Layer](#tiles-layer)
+* [Rings Layer](#rings-layer)
+* [Labels Layer](#labels-layer)
+* [HTML Elements Layer](#html-elements-layer)
+* [3D Objects Layer](#3d-objects-layer)
+* [Custom Layer](#custom-layer)
+* [Render Control](#render-control)
+* [Utility](#utility)
+
+### Container Layout
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
@@ -313,7 +330,22 @@ ReactDOM.render(
 | <b>onLabelRightClick</b> | <i>func</i>| *-* | Callback function for label right-clicks. The label object, the event object and the clicked coordinates are included as arguments: `onLabelRightClick(label, event, { lat, lng, altitude })`. |
 | <b>onLabelHover</b> | <i>func</i>| *-* | Callback function for label mouse over events. The label object (or `null` if there's no label under the mouse line of sight) is included as the first argument, and the previous label object (or `null`) as second argument: `onLabelHover(label, prevlabel)`. |
 
-### Objects Layer
+### HTML Elements Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/html-markers/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/html-markers/preview.png"></a>
+</p>
+
+| Prop | Type | Default | Description |
+| --- | :--: | :--: | --- |
+| <b>htmlElementsData</b> | <i>array</i> | `[]` | List objects to represent in the HTML elements map layer. Each HTML element is rendered using [ThreeJS CSS2DRenderer](https://threejs.org/docs/#examples/en/renderers/CSS2DRenderer). |
+| <b>htmlLat</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lat` | HTML element accessor function, attribute or a numeric constant for the latitude coordinate of the element's central position. |
+| <b>htmlLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lng` | HTML element accessor function, attribute or a numeric constant for the longitude coordinate of the element's central position. |
+| <b>htmlAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0 | HTML element accessor function, attribute or a numeric constant for the altitude coordinate of the element's position, in terms of globe radius units. |
+| <b>htmlElement</b> | <i>string</i> or <i>func</i> | `null` | Accessor function or attribute to retrieve the DOM element to use. Should return an instance of [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement). |
+| <b>htmlTransitionDuration</b> | <i>number</i> | 1000 | Duration (ms) of the transition to animate HTML elements position changes. A value of `0` will move the elements immediately to their final position. |
+
+### 3D Objects Layer
 
 <p align="center">
    <a href="//vasturiano.github.io/react-globe.gl/example/satellites/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/satellites/preview.png"></a>
@@ -347,7 +379,7 @@ ReactDOM.render(
 | <b>onCustomLayerRightClick</b> | <i>func</i>| *-* | Callback function for custom object right-clicks. The custom object, the event object and the clicked coordinates are included as arguments: `onCustomLayerRightClick(obj, event, { lat, lng, altitude })`. |
 | <b>onCustomLayerHover</b> | <i>func</i>| *-* | Callback function for custom object mouse over events. The custom object (or `null` if there's no object under the mouse line of sight) is included as the first argument, and the previous custom object (or `null`) as second argument: `onCustomLayerHover(obj, prevObj)`. |
 
-### Render control
+### Render Control
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |

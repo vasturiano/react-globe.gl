@@ -210,7 +210,15 @@ export interface GlobeProps extends ConfigOptions {
   onLabelRightClick?: (label: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onLabelHover?: (label: object | null, prevLabel: object | null) => void;
 
-  // Objects layer
+  // HTML Elements layer
+  htmlElementsData?: object[];
+  htmlLat?: ObjAccessor<number>;
+  htmlLng?: ObjAccessor<number>;
+  htmlAltitude?: ObjAccessor<number>;
+  htmlElement?: string | ((d: object) => HTMLElement);
+  htmlTransitionDuration?: number;
+
+  // 3D Objects layer
   objectsData?: object[];
   objectLat?: ObjAccessor<number>;
   objectLng?: ObjAccessor<number>;

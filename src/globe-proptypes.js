@@ -160,6 +160,13 @@ export default {
   onLabelRightClick: PropTypes.func,
   onLabelHover: PropTypes.func,
 
+  htmlElementsData: PropTypes.arrayOf(PropTypes.object),
+  htmlLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  htmlLng: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  htmlAltitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
+  htmlElement: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  htmlTransitionDuration: PropTypes.number,
+
   objectsData: PropTypes.arrayOf(PropTypes.object),
   objectLat: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
   objectLng: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.func]),
