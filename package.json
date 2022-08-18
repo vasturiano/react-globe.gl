@@ -7,6 +7,7 @@
   "main": "dist/react-globe.gl.common.js",
   "module": "dist/react-globe.gl.module.js",
   "types": "dist/react-globe.gl.d.ts",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vasturiano/react-globe.gl.git"
@@ -46,20 +47,20 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.2",
-    "@babel/plugin-proposal-class-properties": "^7.17.12",
-    "@babel/plugin-proposal-object-rest-spread": "^7.18.0",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
+    "@babel/core": "^7.18.10",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.18.9",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
     "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "@types/react": "^18.0.9",
+    "@types/react": "^18.0.17",
     "rimraf": "^3.0.2",
-    "rollup": "^2.75.0",
+    "rollup": "^2.78.0",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.4"
   }
 }
