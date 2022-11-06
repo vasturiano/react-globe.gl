@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
@@ -255,7 +256,7 @@ export interface GlobeMethods {
   camera(): Camera;
   renderer(): WebGLRenderer;
   postProcessingComposer(): EffectComposer;
-  controls(): object;
+  controls(): OrbitControls;
 
   // Utilities
   getGlobeRadius(): number;
