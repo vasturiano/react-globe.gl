@@ -53,7 +53,7 @@ A React component to represent data visualization layers on a 3-dimensional glob
 import Globe from 'react-globe.gl';
 ```
 
-or using a script tag
+or using a *script* tag
 
 ```html
 <script src="//unpkg.com/react-globe.gl"></script>
