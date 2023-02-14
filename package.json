@@ -9,8 +9,8 @@
   "module": "dist/react-globe.gl.mjs",
   "types": "dist/react-globe.gl.d.ts",
   "exports": {
-    "umd": "./dist/react-globe.min.js",
-    "default": "./dist/react-globe.mjs"
+    "umd": "./dist/react-globe.gl.min.js",
+    "default": "./dist/react-globe.gl.mjs"
   },
   "sideEffects": false,
   "repository": {
