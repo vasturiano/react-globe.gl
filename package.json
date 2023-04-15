@@ -9,6 +9,7 @@
   "module": "dist/react-globe.gl.mjs",
   "types": "dist/react-globe.gl.d.ts",
   "exports": {
+    "types": "./dist/react-globe.gl.d.ts",
     "umd": "./dist/react-globe.gl.min.js",
     "default": "./dist/react-globe.gl.mjs"
   },
@@ -44,9 +45,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.27",
-    "prop-types": "^15.8",
-    "react-kapsule": "^2.4"
+    "globe.gl": "2",
+    "prop-types": "15",
+    "react-kapsule": "2"
   },
   "peerDependencies": {
     "react": "*"
