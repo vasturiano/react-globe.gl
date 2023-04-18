@@ -224,6 +224,8 @@ export interface GlobeProps extends ConfigOptions {
   objectLat?: ObjAccessor<number>;
   objectLng?: ObjAccessor<number>;
   objectAltitude?: ObjAccessor<number>;
+  objectRotation?: ObjAccessor<{ x?: number, y?: number, z?: number } | null>;
+  objectFacesSurfaces?: ObjAccessor<boolean>;
   objectThreeObject?: Object3D | string | ((d: object) => Object3D);
   objectLabel?: ObjAccessor<string>;
   onObjectClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
