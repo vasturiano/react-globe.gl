@@ -1,0 +1,45 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/@babel/standalone"></script>
+
+  <script src="//unpkg.com/react-globe.gl"></script>
+  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useState, useEffect } = React;
+
+  const World = () => {
+    const [volcanoes, setVolcanoes] = useState([]);
+
+    useEffect(() => {
+      // load data
+      fetch('../datasets/world_volcanoes.json').then(res => res.json())
+        .then(setVolcanoes);
+    }, []);
+
+    return <Globe
+      globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+      heatmapsData={[volcanoes]}
+      heatmapPointLat="lat"
+      heatmapPointLng="lon"
+      heatmapPointWeight={d => d.elevation * 5e-5}
+      heatmapTopAltitude={0.2}
+      heatmapBandwidth={1.35}
+      heatmapColorSaturation={3.2}
+      enablePointerInteraction={false}
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>

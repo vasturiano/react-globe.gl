@@ -1,0 +1,47 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/@babel/standalone"></script>
+
+  <script src="//unpkg.com/d3-dsv"></script>
+
+  <script src="//unpkg.com/react-globe.gl"></script>
+<!--  <script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useState, useEffect } = React;
+
+  const World = () => {
+    const [popData, setPopData] = useState([]);
+
+    useEffect(() => {
+      // load data
+      fetch('../datasets/world_population.csv').then(res => res.text())
+        .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
+        .then(setPopData);
+    }, []);
+
+    return <Globe
+      globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+      heatmapsData={[popData]}
+      heatmapPointLat="lat"
+      heatmapPointLng="lng"
+      heatmapPointWeight="pop"
+      heatmapBandwidth={0.9}
+      heatmapColorSaturation={2.8}
+      enablePointerInteraction={false}
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>

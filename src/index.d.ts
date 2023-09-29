@@ -132,6 +132,22 @@ export interface GlobeProps extends ConfigOptions {
   onPathRightClick?: (path: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPathHover?: (path: object | null, prevPath: object | null) => void;
 
+  // Heatmaps layer
+  heatmapsData?: object[];
+  heatmapPoints?: ObjAccessor<any[]>;
+  heatmapPointLat?: Accessor<any, number>;
+  heatmapPointLng?: Accessor<any, number>;
+  heatmapPointWeight?: Accessor<any, number>;
+  heatmapBandwidth?: ObjAccessor<number>;
+  heatmapColorFn?: ObjAccessor<(t: number) => string>;
+  heatmapColorSaturation?: ObjAccessor<number>;
+  heatmapBaseAltitude?: ObjAccessor<number>;
+  heatmapTopAltitude?: ObjAccessor<number>;
+  heatmapsTransitionDuration?: number;
+  onHeatmapClick?: (heatmap: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onHeatmapRightClick?: (heatmap: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onHeatmapHover?: (heatmap: object | null, prevHeatmap: object | null) => void;
+
   // Hex Bin layer
   hexBinPointsData?: object[];
   hexBinPointLat?: ObjAccessor<number>;
