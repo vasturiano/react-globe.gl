@@ -173,7 +173,9 @@ export interface GlobeProps extends ConfigOptions {
   hexPolygonAltitude?: ObjAccessor<number>;
   hexPolygonResolution?: ObjAccessor<number>;
   hexPolygonMargin?: ObjAccessor<number>;
+  hexPolygonUseDots?: ObjAccessor<boolean>;
   hexPolygonCurvatureResolution?: ObjAccessor<number>;
+  hexPolygonDotResolution?: ObjAccessor<number>;
   hexPolygonsTransitionDuration?: number;
   hexPolygonLabel?: ObjAccessor<string>;
   onHexPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
