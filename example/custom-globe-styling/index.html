@@ -30,10 +30,8 @@
       const globeEl = useRef();
 
       useEffect(() => {
-        setTimeout(() => { // wait for scene to be populated (asynchronously)
-          const directionalLight = globeEl.current.scene().children.find(obj3d => obj3d.type === 'DirectionalLight');
-          directionalLight && directionalLight.position.set(1, 1, 1); // change light position to see the specularMap's effect
-        });
+        const directionalLight = globeEl.current.lights().find(obj3d => obj3d.type === 'DirectionalLight');
+        directionalLight && directionalLight.position.set(1, 1, 1); // change light position to see the specularMap's effect
       }, []);
 
       return <Globe

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
+import { Light, Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
@@ -272,6 +272,8 @@ export interface GlobeMethods {
   pointOfView(pov: { lat?: number, lng?: number, altitude?: number }, transitionMs?: number): GlobeKapsuleInstance;
   pauseAnimation(): GlobeKapsuleInstance;
   resumeAnimation(): GlobeKapsuleInstance;
+  lights(): Light[];
+  lights(lights: Light[]): ChainableInstance;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;

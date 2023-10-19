@@ -9,6 +9,7 @@ const Globe = fromKapsule(
       'pauseAnimation',
       'resumeAnimation',
       'pointOfView',
+      'lights',
       'scene',
       'camera',
       'renderer',
