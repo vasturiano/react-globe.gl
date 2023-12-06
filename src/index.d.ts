@@ -273,7 +273,7 @@ export interface GlobeMethods {
   pauseAnimation(): GlobeKapsuleInstance;
   resumeAnimation(): GlobeKapsuleInstance;
   lights(): Light[];
-  lights(lights: Light[]): ChainableInstance;
+  lights(lights: Light[]): GlobeKapsuleInstance;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
