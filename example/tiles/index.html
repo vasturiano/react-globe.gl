@@ -5,8 +5,6 @@
   <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
-  <script src="//unpkg.com/three"></script>
-
   <script src="//unpkg.com/react-globe.gl"></script>
 <!--  <script src="../../dist/react-globe.gl.js"></script>-->
 </head>
@@ -14,7 +12,9 @@
 <body>
 <div id="globeViz"></div>
 
-<script type="text/jsx">
+<script type="text/jsx" data-type="module">
+  import * as THREE from '//unpkg.com/three/build/three.module.js';
+
   const TILE_MARGIN = 0.35; // degrees
 
   // Gen random data

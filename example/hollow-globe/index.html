@@ -5,7 +5,6 @@
   <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
-  <script src="//unpkg.com/three"></script>
   <script src="//unpkg.com/topojson-client"></script>
 
   <script src="//unpkg.com/react-globe.gl"></script>
@@ -15,7 +14,9 @@
 <body>
 <div id="globeViz"></div>
 
-<script type="text/jsx">
+<script type="text/jsx" data-type="module">
+  import * as THREE from '//unpkg.com/three/build/three.module.js';
+
   const { useState, useEffect } = React;
 
   const polygonsMaterial = new THREE.MeshLambertMaterial({ color: 'darkslategrey', side: THREE.DoubleSide });
