@@ -63,7 +63,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@types/react": "^18.3.12",
     "rimraf": "^6.0.1",
-    "rollup": "^4.26.0",
+    "rollup": "^4.27.2",
     "rollup-plugin-dts": "^6.1.1",
     "typescript": "^5.6.3"
   },
