@@ -110,8 +110,8 @@ ReactDOM.render(
 
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
-| <b>globeImageUrl</b> | <i>string</i>| *-* | URL of the image used in the material that wraps the globe. If no image is provided, the globe is represented as a black sphere. |
-| <b>bumpImageUrl</b> | <i>string</i>| *-* | URL of the image used to create a [bump map](https://threejs.org/docs/#api/en/materials/MeshStandardMaterial.bumpMap) in the material, to represent the globe's terrain. |
+| <b>globeImageUrl</b> | <i>string</i>| *-* | URL of the image used in the material that wraps the globe. This image should follow an [equirectangular projection](https://en.wikipedia.org/wiki/Equirectangular_projection). If no image is provided, the globe is represented as a black sphere. |
+| <b>bumpImageUrl</b> | <i>string</i>| *-* | URL of the image used to create a [bump map](https://threejs.org/docs/#api/en/materials/MeshStandardMaterial.bumpMap) in the material, to represent the globe's terrain. This image should follow an [equirectangular projection](https://en.wikipedia.org/wiki/Equirectangular_projection). |
 | <b>showGlobe</b> | <i>bool</i> | `true` | Whether to show the globe surface itself. |
 | <b>showGraticules</b> | <i>bool</i> | `false` | Whether to show a graticule grid demarking latitude and longitude lines at every 10 degrees. |
 | <b>showAtmosphere</b> | <i>bool</i> | `true` | Whether to show a bright halo surrounding the globe, representing the atmosphere. |
