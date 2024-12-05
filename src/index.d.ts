@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Light, Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import GlobeKapsule, { ConfigOptions } from 'globe.gl';
+import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type ObjAccessor<T> = Accessor<object, T>;
@@ -269,11 +269,11 @@ export interface GlobeProps extends ConfigOptions {
 export interface GlobeMethods {
   // Render control
   pointOfView(): GeoCoords;
-  pointOfView(pov: { lat?: number, lng?: number, altitude?: number }, transitionMs?: number): GlobeKapsule;
-  pauseAnimation(): GlobeKapsule;
-  resumeAnimation(): GlobeKapsule;
+  pointOfView(pov: { lat?: number, lng?: number, altitude?: number }, transitionMs?: number): GlobeKapsuleInstance;
+  pauseAnimation(): GlobeKapsuleInstance;
+  resumeAnimation(): GlobeKapsuleInstance;
   lights(): Light[];
-  lights(lights: Light[]): GlobeKapsule;
+  lights(lights: Light[]): GlobeKapsuleInstance;
   scene(): Scene;
   camera(): Camera;
   renderer(): WebGLRenderer;
