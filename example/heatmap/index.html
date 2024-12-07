@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-globe.gl"></script>
@@ -21,7 +21,7 @@
     weight: Math.random()
   }));
 
-  ReactDOM.render(
+  ReactDOM.createRoot(document.getElementById('globeViz')).render(
     <Globe
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
       heatmapsData={[gData]}
@@ -31,8 +31,7 @@
       heatmapTopAltitude={0.7}
       heatmapsTransitionDuration={3000}
       enablePointerInteraction={false}
-    />,
-    document.getElementById('globeViz')
+    />
   );
 </script>
 </body>

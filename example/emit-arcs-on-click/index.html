@@ -1,8 +1,8 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/@babel/standalone"></script>
 
   <script src="//unpkg.com/react-globe.gl"></script>
@@ -66,9 +66,7 @@
     />;
   };
 
-  ReactDOM.render(
-    <World />,
-    document.getElementById('globeViz')
-  );
+  ReactDOM.createRoot(document.getElementById('globeViz'))
+    .render(<World />);
 </script>
 </body>
