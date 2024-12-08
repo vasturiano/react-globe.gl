@@ -7,6 +7,8 @@ react-globe.gl
 
 React bindings for the [globe.gl](https://github.com/vasturiano/globe.gl) UI component.
 
+See also the [react-three-fiber component](https://github.com/vasturiano/r3f-globe).
+
 <p align="center">
    <a href="//vasturiano.github.io/react-globe.gl/example/world-population/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/world-population/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/airline-routes/us-international-outbound.html"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/airline-routes/preview.png"></a>
