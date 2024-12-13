@@ -1,24 +1,26 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
 
-  <script src="//unpkg.com/d3-array"></script>
-  <script src="//unpkg.com/d3-scale"></script>
-
-  <script src="//unpkg.com/react-globe.gl"></script>
-  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
+<!--  <script src="../../dist/react-globe.gl.js" defer></script>-->
 </head>
 
 <body>
 <div id="globeViz"></div>
 
-<script type="text/jsx">
-  const { useState, useEffect } = React;
+<script src="//unpkg.com/@babel/standalone"></script>
+<script type="text/jsx" data-type="module">
+  import Globe from 'https://esm.sh/react-globe.gl?external=react';
+  import React, { useState, useEffect } from 'react';
+  import { createRoot } from 'react-dom';
+  import { scaleOrdinal } from 'https://esm.sh/d3-scale';
 
-  const colorScale = d3.scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
+  const colorScale = scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
 
   const labelsTopOrientation = new Set(['Apollo 12', 'Luna 2', 'Luna 20', 'Luna 21', 'Luna 24', 'LCROSS Probe']); // avoid label collisions
 
@@ -34,7 +36,7 @@
     return <Globe
       globeImageUrl="./lunar_surface.jpg"
       bumpImageUrl="./lunar_bumpmap.jpg"
-      // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+      backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       showGraticules={true}
       labelsData={landingSites}
       labelText="label"
@@ -51,7 +53,7 @@
     />;
   };
 
-  ReactDOM.createRoot(document.getElementById('globeViz')).render(
+  createRoot(document.getElementById('globeViz')).render(
     <Moon />
   );
 </script>

@@ -1,22 +1,25 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
 
-  <script src="//unpkg.com/d3-dsv"></script>
-  <script src="//unpkg.com/index-array-by"></script>
-
-  <script src="//unpkg.com/react-globe.gl"></script>
-  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
+<!--  <script src="../../dist/react-globe.gl.js" defer></script>-->
 </head>
 
 <body>
 <div id="globeViz"></div>
 
-<script type="text/jsx">
-  const { useState, useEffect, useRef } = React;
+<script src="//unpkg.com/@babel/standalone"></script>
+<script type="text/jsx" data-type="module">
+  import Globe from 'https://esm.sh/react-globe.gl?external=react';
+  import React, { useState, useEffect, useRef } from 'react';
+  import { createRoot } from 'react-dom';
+  import { csvParseRows } from 'https://esm.sh/d3-dsv';
+  import indexBy from 'https://esm.sh/index-array-by';
 
   const COUNTRY = 'United States';
   const OPACITY = 0.22;
@@ -33,9 +36,9 @@
       // load data
       Promise.all([
         fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat').then(res => res.text())
-          .then(d => d3.csvParseRows(d, airportParse)),
+          .then(d => csvParseRows(d, airportParse)),
         fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat').then(res => res.text())
-          .then(d => d3.csvParseRows(d, routeParse))
+          .then(d => csvParseRows(d, routeParse))
       ]).then(([airports, routes]) => {
 
         const byIata = indexBy(airports, 'iata', false);
@@ -84,7 +87,7 @@
     />;
   };
 
-  ReactDOM.createRoot(document.getElementById('globeViz'))
+  createRoot(document.getElementById('globeViz'))
     .render(<World />);
 </script>
 </body>

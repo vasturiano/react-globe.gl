@@ -1,21 +1,27 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
 
-  <script src="//unpkg.com/react-globe.gl"></script>
-  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
+<!--  <script src="../../dist/react-globe.gl.js" defer></script>-->
 </head>
 
 <body>
 <div id="globeViz"></div>
 
-<script type="text/jsx">
+<script src="//unpkg.com/@babel/standalone"></script>
+<script type="text/jsx" data-type="module">
+  import Globe from 'https://esm.sh/react-globe.gl?external=react';
+  import React from 'react';
+  import { createRoot } from 'react-dom';
+
   const shieldRing = { lat: 90, lng: 0 };
 
-  ReactDOM.createRoot(document.getElementById('globeViz')).render(
+  createRoot(document.getElementById('globeViz')).render(
     <Globe
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       ringsData={[shieldRing]}
