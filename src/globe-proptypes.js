@@ -8,6 +8,7 @@ export default {
 
   globeImageUrl: PropTypes.string,
   bumpImageUrl: PropTypes.string,
+  globeTileEngineUrl: PropTypes.func,
   showGlobe: PropTypes.bool,
   showGraticules: PropTypes.bool,
   showAtmosphere: PropTypes.bool,
