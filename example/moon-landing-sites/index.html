@@ -44,11 +44,11 @@
       labelDotRadius={0.4}
       labelDotOrientation={d => labelsTopOrientation.has(d.label) ? 'top' : 'bottom'}
       labelColor={d => colorScale(d.agency)}
-      labelLabel={d => `
-        <div><b>${d.label}</b></div>
-        <div>${d.agency} - ${d.program} Program</div>
-        <div>Landing on <i>${new Date(d.date).toLocaleDateString()}</i></div>
-      `}
+      labelLabel={d => <div>
+        <div><b>{d.label}</b></div>
+        <div>{d.agency} - {d.program} Program</div>
+        <div>Landing on <i>{new Date(d.date).toLocaleDateString()}</i></div>
+      </div>}
       onLabelClick={d => window.open(d.url, '_blank')}
     />;
   };

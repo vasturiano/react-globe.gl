@@ -54,10 +54,10 @@
       polygonAltitude={altitude}
       polygonCapColor={() => 'rgba(200, 0, 0, 0.6)'}
       polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
-      polygonLabel={({ properties: d }) => `
-        <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
-        Population: <i>${Math.round(+d.POP_EST / 1e4) / 1e2}M</i>
-      `}
+      polygonLabel={({ properties: d }) => <div>
+        <div><b>{d.ADMIN} ({d.ISO_A2})</b></div>
+        <div>Population: <i>{Math.round(+d.POP_EST / 1e4) / 1e2}M</i></div>
+      </div>}
       polygonsTransitionDuration={transitionDuration}
     />;
   };

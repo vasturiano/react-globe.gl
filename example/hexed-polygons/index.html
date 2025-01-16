@@ -35,10 +35,10 @@
       hexPolygonMargin={0.3}
       hexPolygonUseDots={true}
       hexPolygonColor={() => `#${Math.round(Math.random() * Math.pow(2, 24)).toString(16).padStart(6, '0')}`}
-      hexPolygonLabel={({ properties: d }) => `
-        <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
-        Population: <i>${d.POP_EST}</i>
-      `}
+      hexPolygonLabel={({ properties: d }) => <div>
+        <div><b>{d.ADMIN} ({d.ISO_A2})</b></div>
+        <div>Population: <i>{d.POP_EST}</i></div>
+      </div>}
     />;
   };
 

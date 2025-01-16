@@ -51,11 +51,11 @@
       polygonCapColor={d => d === hoverD ? 'steelblue' : colorScale(getVal(d))}
       polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
       polygonStrokeColor={() => '#111'}
-      polygonLabel={({ properties: d }) => `
-        <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
-        GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
-        Population: <i>${d.POP_EST}</i>
-      `}
+      polygonLabel={({ properties: d }) => <div>
+        <div><b>{d.ADMIN} ({d.ISO_A2}):</b></div>
+        <div>GDP: <i>{d.GDP_MD_EST}</i> M$</div>
+        <div>Population: <i>{d.POP_EST}</i></div>
+      </div>}
       onPolygonHover={setHoverD}
       polygonsTransitionDuration={300}
     />;

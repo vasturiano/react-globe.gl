@@ -1083,10 +1083,10 @@
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.15.tgz#f9d55fd5a0aa2de9dc80b1b04e437538b7298868"
   integrity sha512-9oSxFzDCT2Rj6DfcHF8G++jxBKS7mBqXl5xrRW+Kbvjry6Uduya2iiwqHPhVXpasAVMBYKkEPGgKhd3+/HZ6xA==
 
-"@types/react@^19.0.6":
-  version "19.0.6"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.6.tgz#98deae4c5c4b24735e5d9e341302f9ebd45e80d3"
-  integrity sha512-gIlMztcTeDgXCUj0vCBOqEuSEhX//63fW9SZtCJ+agxoQTOklwDfiEMlTWn4mR/C/UK5VHlpwsCsOyf7/hc4lw==
+"@types/react@^19.0.7":
+  version "19.0.7"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.7.tgz#c451968b999d1cb2d9207dc5ff56496164cf511d"
+  integrity sha512-MoFsEJKkAtZCrC1r6CM8U22GzhG7u2Wir8ons/aCKH6MBdD1ibV24zOSSkdZVUKqN5i396zG5VKLYZ3yaUZdLA==
   dependencies:
     csstype "^3.0.2"
 
@@ -1367,9 +1367,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.73:
-  version "1.5.80"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.80.tgz#ca7a8361d7305f0ec9e203ce4e633cbb8a8ef1b1"
-  integrity sha512-LTrKpW0AqIuHwmlVNV+cjFYTnXtM9K37OGhpe0ZI10ScPSxqVSryZHIY3WnCS5NSYbBODRTZyhRMS2h5FAEqAw==
+  version "1.5.83"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.83.tgz#3f74078f0c83e24bf7e692eaa855a998d1bec34f"
+  integrity sha512-LcUDPqSt+V0QmI47XLzZrz5OqILSMGsPFkDYus22rIbgorSvBYEFqq854ltTmUdHkY92FSdAAvsh4jWEULMdfQ==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -1401,13 +1401,14 @@ fdir@^6.2.0:
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.2.tgz#ddaa7ce1831b161bc3657bb99cb36e1622702689"
   integrity sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==
 
-float-tooltip@1:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/float-tooltip/-/float-tooltip-1.4.2.tgz#a128f389aa45a6149ed2f27aae40151653e39479"
-  integrity sha512-sKWm5Q9YKBgpli8c5VEADvBYYH2Jqy+RH/m7FUbDMPUuoXYMRBVYppp8+dDv962XiE2kCKt7TIOV3lUQ+nK0Pw==
+float-tooltip@^1.6:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/float-tooltip/-/float-tooltip-1.6.1.tgz#685b810a76a6170f821384a0438b9fe38d986940"
+  integrity sha512-MjpvY1Epu2E5iOioAJ5gR3A1oCIKv4nssc6FlqJWRvr9nK7Zp+xCAwok6ZE4jkvlYT0Ffy6n1whbhck1qSbjAw==
   dependencies:
     d3-selection "2 - 3"
     kapsule "^1.16"
+    preact "10"
 
 foreground-child@^3.1.0:
   version "3.3.0"
@@ -1456,17 +1457,17 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-globe.gl@^2.36:
-  version "2.36.3"
-  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.36.3.tgz#ba13b900f58b5a9cdd3139c69f7754efa8a90c22"
-  integrity sha512-LKGn9cyJYarWuUT/PiufK8gRFqeGiq8O+zB01rObG8XMTAAYW8lsysozGgN0PcTP2XHpnKlcLY9OnT3co8xbyg==
+globe.gl@^2.38:
+  version "2.38.0"
+  resolved "https://registry.yarnpkg.com/globe.gl/-/globe.gl-2.38.0.tgz#872e01a42479a442b2d0ebcbe63cc6d8c7166d59"
+  integrity sha512-bXsbkhNDu6GNXdqSQJo3tGmElAGlahT5SZ/Cwys0cQmAwPTGcJYUAwuug+B1th4fPaaUorNFDrkNMuMEMP8pxQ==
   dependencies:
     "@tweenjs/tween.js" "18 - 25"
     accessor-fn "1"
     kapsule "^1.16"
     three ">=0.154 <1"
     three-globe "^2.40"
-    three-render-objects "^1.33"
+    three-render-objects "^1.35"
 
 h3-js@4:
   version "4.1.0"
@@ -1667,6 +1668,11 @@ polished@4:
   integrity sha512-OBatVyC/N7SCW/FaDHrSd+vn0o5cS855TOmYi4OkdWUMSJCET/xip//ch8xGUvtr3i44X9LVyWwQlRMTN3pwSA==
   dependencies:
     "@babel/runtime" "^7.17.8"
+
+preact@10:
+  version "10.25.4"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.25.4.tgz#c1d00bee9d7b9dcd06a2311d9951973b506ae8ac"
+  integrity sha512-jLdZDb+Q+odkHJ+MpW/9U5cODzqnB+fy2EiHSZES7ldV5LK7yjlVzTp7R8Xy6W6y75kfK8iWYtFVH7lvjwrCMA==
 
 prop-types@15:
   version "15.8.1"
@@ -1958,14 +1964,14 @@ three-globe@^2.40:
     tinycolor2 "1"
     yaot "^1.1"
 
-three-render-objects@^1.33:
-  version "1.33.2"
-  resolved "https://registry.yarnpkg.com/three-render-objects/-/three-render-objects-1.33.2.tgz#2280e0fbd6790fb0c873ecae7517a30ec1428c05"
-  integrity sha512-l2FGxj0SWl0i/aXo3a3CaqVV3yu6z6NN36PNuDfd2dcjbxuqofOY0vQ6yOKqrP18zaDsgo9Wu8pZQAfosSnkfg==
+three-render-objects@^1.35:
+  version "1.35.0"
+  resolved "https://registry.yarnpkg.com/three-render-objects/-/three-render-objects-1.35.0.tgz#05ab7c568dd846222f5fd62e7786852addda532f"
+  integrity sha512-rZ6tn5VOtp/G7sw2aGI+VH6HQ/ALIlexpf24Pk2D7vw5NAR0RZdNZZ1VZdl42NanQWNIcy/TuJ935BXiRpyusQ==
   dependencies:
     "@tweenjs/tween.js" "18 - 25"
     accessor-fn "1"
-    float-tooltip "1"
+    float-tooltip "^1.6"
     kapsule "^1.16"
     polished "4"
 

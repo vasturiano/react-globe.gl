@@ -8,6 +8,8 @@ type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type ObjAccessor<T> = Accessor<object, T>;
 type HexBinAccessor<T> = Accessor<HexBin, T>;
 
+type TooltipContent = string | React.ReactHTMLElement<HTMLElement>;
+
 interface HexBin {
   points: object[],
   sumWeight: number,
@@ -71,7 +73,7 @@ export interface GlobeProps extends ConfigOptions {
   pointResolution?: number;
   pointsMerge?: boolean;
   pointsTransitionDuration?: number;
-  pointLabel?: ObjAccessor<string>;
+  pointLabel?: ObjAccessor<TooltipContent>;
   onPointClick?: (point: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPointRightClick?: (point: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPointHover?: (point: object | null, prevPoint: object | null) => void;
@@ -93,7 +95,7 @@ export interface GlobeProps extends ConfigOptions {
   arcDashInitialGap?: ObjAccessor<number>;
   arcDashAnimateTime?: ObjAccessor<number>;
   arcsTransitionDuration?: number;
-  arcLabel?: ObjAccessor<string>;
+  arcLabel?: ObjAccessor<TooltipContent>;
   onArcClick?: (arc: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onArcRightClick?: (arc: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onArcHover?: (arc: object | null, prevArc: object | null) => void;
@@ -109,7 +111,7 @@ export interface GlobeProps extends ConfigOptions {
   polygonAltitude?: ObjAccessor<number>;
   polygonCapCurvatureResolution?: ObjAccessor<number>;
   polygonsTransitionDuration?: number;
-  polygonLabel?: ObjAccessor<string>;
+  polygonLabel?: ObjAccessor<TooltipContent>;
   onPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPolygonRightClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPolygonHover?: (polygon: object | null, prevPolygon: object | null) => void;
@@ -128,7 +130,7 @@ export interface GlobeProps extends ConfigOptions {
   pathDashInitialGap?: ObjAccessor<number>;
   pathDashAnimateTime?: ObjAccessor<number>;
   pathTransitionDuration?: number;
-  pathLabel?: ObjAccessor<string>;
+  pathLabel?: ObjAccessor<TooltipContent>;
   onPathClick?: (path: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPathRightClick?: (path: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onPathHover?: (path: object | null, prevPath: object | null) => void;
@@ -162,7 +164,7 @@ export interface GlobeProps extends ConfigOptions {
   hexSideColor?: HexBinAccessor<string>;
   hexBinMerge?: boolean;
   hexTransitionDuration?: number;
-  hexLabel?: HexBinAccessor<string>;
+  hexLabel?: HexBinAccessor<TooltipContent>;
   onHexClick?: (hex: HexBin, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onHexRightClick?: (hex: HexBin, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onHexHover?: (hex: HexBin | null, prevHex: HexBin | null) => void;
@@ -178,7 +180,7 @@ export interface GlobeProps extends ConfigOptions {
   hexPolygonCurvatureResolution?: ObjAccessor<number>;
   hexPolygonDotResolution?: ObjAccessor<number>;
   hexPolygonsTransitionDuration?: number;
-  hexPolygonLabel?: ObjAccessor<string>;
+  hexPolygonLabel?: ObjAccessor<TooltipContent>;
   onHexPolygonClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onHexPolygonRightClick?: (polygon: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onHexPolygonHover?: (polygon: object | null, prevPolygon: object | null) => void;
@@ -194,7 +196,7 @@ export interface GlobeProps extends ConfigOptions {
   tileMaterial?: ObjAccessor<Material>;
   tileCurvatureResolution?: ObjAccessor<number>;
   tilesTransitionDuration?: number;
-  tileLabel?: ObjAccessor<string>;
+  tileLabel?: ObjAccessor<TooltipContent>;
   onTileClick?: (tile: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onTileRightClick?: (tile: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onTileHover?: (tile: object | null, prevTile: object | null) => void;
@@ -225,7 +227,7 @@ export interface GlobeProps extends ConfigOptions {
   labelDotRadius?: ObjAccessor<number>;
   labelDotOrientation?: ObjAccessor<LabelOrientation>;
   labelsTransitionDuration?: number;
-  labelLabel?: ObjAccessor<string>;
+  labelLabel?: ObjAccessor<TooltipContent>;
   onLabelClick?: (label: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onLabelRightClick?: (label: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onLabelHover?: (label: object | null, prevLabel: object | null) => void;
@@ -246,7 +248,7 @@ export interface GlobeProps extends ConfigOptions {
   objectRotation?: ObjAccessor<{ x?: number, y?: number, z?: number } | null>;
   objectFacesSurfaces?: ObjAccessor<boolean>;
   objectThreeObject?: Object3D | string | ((d: object) => Object3D);
-  objectLabel?: ObjAccessor<string>;
+  objectLabel?: ObjAccessor<TooltipContent>;
   onObjectClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onObjectRightClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onObjectHover?: (obj: object | null, prevObj: object | null) => void;
@@ -255,7 +257,7 @@ export interface GlobeProps extends ConfigOptions {
   customLayerData?: object[];
   customThreeObject?: Object3D | string | ((d: object) => Object3D);
   customThreeObjectUpdate?: string | ((obj: Object3D, objData: object) => void);
-  customLayerLabel?: ObjAccessor<string>;
+  customLayerLabel?: ObjAccessor<TooltipContent>;
   onCustomLayerClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onCustomLayerRightClick?: (obj: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onCustomLayerHover?: (obj: object | null, prevObj: object | null) => void;

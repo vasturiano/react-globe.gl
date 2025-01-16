@@ -45,7 +45,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.36",
+    "globe.gl": "^2.38",
     "prop-types": "15",
     "react-kapsule": "^2.5"
   },
@@ -61,7 +61,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/react": "^19.0.6",
+    "@types/react": "^19.0.7",
     "rimraf": "^6.0.1",
     "rollup": "^4.30.1",
     "rollup-plugin-dts": "^6.1.1",

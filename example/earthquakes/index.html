@@ -44,11 +44,15 @@
       hexAltitude={({ sumWeight }) => sumWeight * 0.0025}
       hexTopColor={d => weightColor(d.sumWeight)}
       hexSideColor={d => weightColor(d.sumWeight)}
-      hexLabel={d => `
-        <b>${d.points.length}</b> earthquakes in the past month:<ul><li>
-          ${d.points.slice().sort((a, b) => b.properties.mag - a.properties.mag).map(d => d.properties.title).join('</li><li>')}
-        </li></ul>
-      `}
+      hexLabel={d => <div>
+        <b>{d.points.length}</b> earthquakes in the past month:
+        <ul>
+          {d.points.slice()
+            .sort((a, b) => b.properties.mag - a.properties.mag)
+            .map(d => <li>{d.properties.title}</li>)
+          }
+        </ul>
+      </div>}
     />;
   };
 

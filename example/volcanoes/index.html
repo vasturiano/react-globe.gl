@@ -35,13 +35,13 @@
 
     const getAlt = d => d.elevation * 5e-5;
 
-    const getTooltip = d => `
+    const getTooltip = d => <div>
       <div style="text-align: center">
-        <div><b>${d.name}</b>, ${d.country}</div>
-        <div>(${d.type})</div>
-        <div>Elevation: <em>${d.elevation}</em>m</div>
+        <div><b>{d.name}</b>, {d.country}</div>
+        <div>({d.type})</div>
+        <div>Elevation: <em>{d.elevation}</em>m</div>
       </div>
-    `;
+    </div>;
 
     return <Globe
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
