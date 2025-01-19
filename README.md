@@ -90,6 +90,7 @@ ReactDOM.render(
 * [Hex Bin Layer](#hex-bin-layer)
 * [Hexed Polygons Layer](#hexed-polygons-layer)
 * [Tiles Layer](#tiles-layer)
+* [Particles Layer](#particles-layer)
 * [Rings Layer](#rings-layer)
 * [Labels Layer](#labels-layer)
 * [HTML Elements Layer](#html-elements-layer)
@@ -320,6 +321,28 @@ ReactDOM.render(
 | <b>onTileRightClick</b> | <i>func</i> | *-* | Callback function for tile right-clicks. The tile object, the event object and the clicked coordinates are included as arguments: `onTileRightClick(tile, event, { lat, lng, altitude })`. |
 | <b>onTileHover</b> | <i>func</i> | *-* | Callback function for tile mouse over events. The tile object (or `null` if there's no tile under the mouse line of sight) is included as the first argument, and the previous tile object (or `null`) as second argument: `onTileHover(tile, prevTile)`. |
 
+### Particles Layer
+
+<p align="center">
+   <a href="//vasturiano.github.io/react-globe.gl/example/satellites/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/satellites/preview.png"></a>
+</p>
+
+| Prop | Type | Default | Description |
+| --- | :--: | :--: | --- |
+| <b>particlesData</b> | <i>array</i> | `[]` | List of particle sets to represent in the particles map layer. Each particle set is displayed as a group of [Points](https://threejs.org/docs/#api/en/objects/Points). Each point in the group is a geometry vertex and can be individually positioned anywhere relative to the globe. |
+| <b>particlesList</b> | <i>string</i> or <i>func</i> | `d => d` | Particle set accessor function or attribute for the list of particles in the set. By default, the data structure is expected to be an array of arrays of individual particle objects. |
+| <b>particleLabel</b> | <i>string</i> or <i>func</i> | `name` | Particle object accessor function or attribute for label (shown as tooltip). Supports plain text or HTML content. |
+| <b>particleLat</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lat` | Particle object accessor function, attribute or a numeric constant for the latitude coordinate. |
+| <b>particleLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lng` | Particle object accessor function, attribute or a numeric constant for the longitude coordinate. |
+| <b>particleAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.01 | Particle object accessor function, attribute or a numeric constant for the altitude in terms of globe radius units. |
+| <b>particlesSize</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0.5 | Particle set accessor function, attribute or a numeric constant for the size of all the particles in the group. |
+| <b>particlesSizeAttenuation</b> | <i>bool</i>, <i>string</i> or <i>func</i> | `true` | Particle set accessor function, attribute or a boolean constant for whether the size of each particle on the screen should be attenuated according to the distance to the camera. |
+| <b>particlesColor</b> | <i>string</i> or <i>func</i> | `white` | Particle set accessor function or attribute for the color of all the particles in the group. This setting will be ignored if `particlesTexture` is defined. |
+| <b>particlesTexture</b> | <i>string</i> or <i>func</i> | - | Particle set accessor function or attribute for the [Texture](https://threejs.org/docs/#api/en/textures/Texture) to be applied to all the particles in the group. |
+| <b>onParticleClick</b> | <i>func</i> | - | Callback function for particle (left-button) clicks. The particle object, the event object and the clicked coordinates are included as arguments: `onParticleClick(particle, event, { lat, lng, altitude })`. |
+| <b>onParticleRightClick</b> | <i>func</i> | - | Callback function for particle right-clicks. The particle object, the event object and the clicked coordinates are included as arguments: `onParticleRightClick(particle, event, { lat, lng, altitude })`. |
+| <b>onParticleHover</b> | <i>func</i> | - | Callback function for particle mouse over events. The particle object (or `null` if there's no particle under the mouse line of sight) is included as the first argument, and the previous particle object (or `null`) as second argument: `onParticleHover(particle, prevParticle)`. |
+
 ### Rings Layer
 
 <p align="center">
@@ -382,10 +405,6 @@ ReactDOM.render(
 
 ### 3D Objects Layer
 
-<p align="center">
-   <a href="//vasturiano.github.io/react-globe.gl/example/satellites/"><img width="70%" src="https://vasturiano.github.io/react-globe.gl/example/satellites/preview.png"></a>
-</p>
-
 | Prop | Type | Default | Description |
 | --- | :--: | :--: | --- |
 | <b>objectsData</b> | <i>array</i> | `[]` | Getter/setter for the list of custom 3D objects to represent in the objects layer. Each object is rendered according to the `objectThreeObject` method. |
@@ -423,7 +442,7 @@ ReactDOM.render(
 | <b>rendererConfig</b> | <i>object</i> | `{ antialias: true, alpha: true }` | Configuration parameters to pass to the [ThreeJS WebGLRenderer](https://threejs.org/docs/#api/en/renderers/WebGLRenderer) constructor. This prop only has an effect on component mount. |
 | <b>enablePointerInteraction</b> | <i>bool</i> | `true` | Whether to enable the mouse tracking events. This activates an internal tracker of the canvas mouse position and enables the functionality of object hover/click and tooltip labels, at the cost of performance. If you're looking for maximum gain in your globe performance it's recommended to switch off this property. |
 | <b>pointerEventsFilter</b> | <i>func</i> | `() => true` | Filter function which defines whether a particular object can be the target of pointer interactions. In general, objects that are closer to the camera get precedence in capturing pointer events. This function allows having ignored object layers so that pointer events can be passed through to deeper objects in the various globe layers. The ThreeJS object and its associated data (if any) are passed as arguments: `pointerEventsFilter(obj, data)`. The function should return a boolean value. |
-| <b>lineHoverPrecision</b> | <i>number</i> | 0.2 | Precision to use when detecting hover events over [Line](https://threejs.org/docs/#api/objects/Line) objects, such as arcs and paths. |
+| <b>lineHoverPrecision</b> | <i>number</i> | 0.2 | Precision to use when detecting hover events over [Line](https://threejs.org/docs/#api/objects/Line) and [Points](https://threejs.org/docs/#api/objects/Points) objects, such as arcs, paths or particles. |
 
 | Method | Arguments | Description |
 | --- | :--: | --- |

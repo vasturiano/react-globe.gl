@@ -30,13 +30,11 @@
 <script src="//unpkg.com/@babel/standalone"></script>
 <script type="text/jsx" data-type="module">
   import Globe from 'https://esm.sh/react-globe.gl?external=react';
-  import React, { useState, useEffect, useRef, useMemo } from 'react';
+  import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
   import { createRoot } from 'react-dom';
   import * as satellite from 'https://esm.sh/satellite.js';
-  import * as THREE from 'https://esm.sh/three';
 
   const EARTH_RADIUS_KM = 6371; // km
-  const SAT_SIZE = 80; // km
   const TIME_STEP = 3 * 1000; // per frame
 
   const World = () => {
@@ -65,38 +63,31 @@
           name: name.trim().replace(/^0 /, '')
         }))
         // exclude those that can't be propagated
-        .filter(d => !!satellite.propagate(d.satrec, new Date()).position)
-        .slice(0, 1500);
+        .filter(d => !!satellite.propagate(d.satrec, new Date()).position);
 
         setSatData(satData);
       });
     }, []);
 
-    const objectsData = useMemo(() => {
+    const particlesData = useMemo(() => {
       if (!satData) return [];
 
       // Update satellite positions
       const gmst = satellite.gstime(time);
-      return satData.map(d => {
-        const eci = satellite.propagate(d.satrec, time);
-        if (eci.position) {
-          const gdPos = satellite.eciToGeodetic(eci.position, gmst);
-          const lat = satellite.radiansToDegrees(gdPos.latitude);
-          const lng = satellite.radiansToDegrees(gdPos.longitude);
-          const alt = gdPos.height / EARTH_RADIUS_KM;
-          return { ...d, lat, lng, alt };
-        }
-        return d;
-      });
+      return [
+        satData.map(d => {
+          const eci = satellite.propagate(d.satrec, time);
+          if (eci.position) {
+            const gdPos = satellite.eciToGeodetic(eci.position, gmst);
+            const lat = satellite.radiansToDegrees(gdPos.latitude);
+            const lng = satellite.radiansToDegrees(gdPos.longitude);
+            const alt = gdPos.height / EARTH_RADIUS_KM;
+            return { ...d, lat, lng, alt };
+          }
+          return d;
+        }).filter(d => !isNaN(d.lat) && !isNaN(d.lng) && !isNaN(d.alt))
+      ];
     }, [satData, time]);
-
-    const satObject = useMemo(() => {
-      if (!globeRadius) return undefined;
-
-      const satGeometry = new THREE.OctahedronGeometry(SAT_SIZE * globeRadius / EARTH_RADIUS_KM / 2, 0);
-      const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
-      return new THREE.Mesh(satGeometry, satMaterial);
-    }, [globeRadius]);
 
     useEffect(() => {
       setGlobeRadius(globeEl.current.getGlobeRadius());
@@ -107,13 +98,12 @@
       <Globe
         ref={globeEl}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        objectsData={objectsData}
-        objectLabel="name"
-        objectLat="lat"
-        objectLng="lng"
-        objectAltitude="alt"
-        objectFacesSurface={false}
-        objectThreeObject={satObject}
+        particlesData={particlesData}
+        particleLabel="name"
+        particleLat="lat"
+        particleLng="lng"
+        particleAltitude="alt"
+        particlesColor={useCallback(() => 'palegreen', [])}
       />
       <div id="time-log">{time.toString()}</div>
     </div>;

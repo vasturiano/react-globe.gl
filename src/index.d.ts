@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Light, Scene, Camera, WebGLRenderer, Object3D, Material } from 'three';
+import { Light, Scene, Camera, WebGLRenderer, Object3D, Material, Texture } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { ConfigOptions, GlobeInstance as GlobeKapsuleInstance } from 'globe.gl';
@@ -200,6 +200,21 @@ export interface GlobeProps extends ConfigOptions {
   onTileClick?: (tile: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onTileRightClick?: (tile: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
   onTileHover?: (tile: object | null, prevTile: object | null) => void;
+
+  // Particles layer
+  particlesData?: object[];
+  particlesList?: ObjAccessor<object[]>;
+  particleLat?: ObjAccessor<number>;
+  particleLng?: ObjAccessor<number>;
+  particleAltitude?: ObjAccessor<number>;
+  particlesSize?: ObjAccessor<number>;
+  particlesSizeAttenuation?: ObjAccessor<boolean>;
+  particlesColor?: ObjAccessor<string>;
+  particlesTexture?: ObjAccessor<Texture>;
+  particleLabel?: ObjAccessor<TooltipContent>;
+  onParticleClick?: (particle: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onParticleRightClick?: (particle: object, event: MouseEvent, coords: { lat: number, lng: number, altitude: number }) => void;
+  onParticleHover?: (particle: object | null, prevParticle: object | null) => void;
 
   // Rings Layer
   ringsData?: object[];
