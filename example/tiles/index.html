@@ -3,7 +3,8 @@
 
   <script type="importmap">{ "imports": {
     "react": "https://esm.sh/react",
-    "react-dom": "https://esm.sh/react-dom/client"
+    "react-dom": "https://esm.sh/react-dom/client",
+    "taichi.js": "https://dev.jspm.io/taichi.js"
   }}</script>
 
 <!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
@@ -15,7 +16,7 @@
 
 <script src="//unpkg.com/@babel/standalone"></script>
 <script type="text/jsx" data-type="module">
-  import Globe from 'https://esm.sh/react-globe.gl?external=react';
+  import Globe from 'https://esm.sh/react-globe.gl?external=react,taichi.js';
   import React from 'react';
   import { createRoot } from 'react-dom';
   import { MeshLambertMaterial } from 'https://esm.sh/three';
