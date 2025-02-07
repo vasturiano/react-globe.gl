@@ -1,0 +1,179 @@
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .slider-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+
+    <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react",
+      "react-dom": "https://esm.sh/react-dom",
+      "react-dom/client": "https://esm.sh/react-dom/client",
+      "three": "https://esm.sh/three"
+    }
+  }
+    </script>
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/jsx" data-type="module">
+    import Globe from 'https://esm.sh/react-globe.gl?external=react';
+    import React, {useEffect, useRef, useState} from 'react';
+    import {createRoot} from 'react-dom/client';
+    import * as THREE from 'three';
+
+
+    // Custom shader
+    // - Blends night and day images to simulate day/night cycle
+    // - Updates terminator line as timeOfDay progresses
+    // - Maintains terminator line placement while rotating by using pointOfView()
+    const dayNightShader = {
+        vertexShader: `
+      varying vec3 vNormal;
+      varying vec2 vUv;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+        fragmentShader: `
+      #define PI 3.141592653589793
+      uniform sampler2D dayTexture;
+      uniform sampler2D nightTexture;
+      uniform float time;
+      uniform vec3 globeRotation;
+      varying vec3 vNormal;
+      varying vec2 vUv;
+
+      void main() {
+        float sunAngle = time * 2.0 * PI;
+        vec3 sunDirection = vec3(cos(sunAngle), 0.0, sin(sunAngle));
+        vec3 rotation = globeRotation * PI / 180.0;
+        float invLat = -rotation.x;
+        float invLon = rotation.y;
+
+        mat3 rotX = mat3(
+          1, 0, 0,
+          0, cos(invLat), -sin(invLat),
+          0, sin(invLat), cos(invLat)
+        );
+        mat3 rotY = mat3(
+          cos(invLon), 0, sin(invLon),
+          0, 1, 0,
+          -sin(invLon), 0, cos(invLon)
+        );
+
+        vec3 rotatedSunDirection = rotX * rotY * sunDirection;
+        float intensity = dot(normalize(vNormal), normalize(rotatedSunDirection));
+        vec4 dayColor = texture2D(dayTexture, vUv);
+        vec4 nightColor = texture2D(nightTexture, vUv);
+        float blendFactor = smoothstep(-0.1, 0.1, intensity);
+
+        gl_FragColor = mix(nightColor, dayColor, blendFactor);
+      }
+    `
+    };
+
+    function DayNightGlobe() {
+
+        const globeRef = useRef();
+        const [globeMaterial, setGlobeMaterial] = useState();
+        const startTimeRef = useRef(performance.now());
+        const [cycleDuration, setCycleDuration] = useState(3);
+
+        useEffect(() => {
+            const loader = new THREE.TextureLoader();
+            Promise.all([
+                loader.loadAsync('//unpkg.com/three-globe/example/img/earth-day.jpg'),
+                loader.loadAsync('//unpkg.com/three-globe/example/img/earth-night.jpg')
+            ]).then(([dayTexture, nightTexture]) => {
+                const material = new THREE.ShaderMaterial({
+                    uniforms: {
+                        time: {value: 0},
+                        dayTexture: {value: dayTexture},
+                        nightTexture: {value: nightTexture},
+                        globeRotation: {value: new THREE.Vector3()}
+                    },
+                    vertexShader: dayNightShader.vertexShader,
+                    fragmentShader: dayNightShader.fragmentShader,
+                    side: THREE.FrontSide
+                });
+                setGlobeMaterial(material);
+            });
+        }, []);
+
+        useEffect(() => {
+            let animationFrameId;
+            const updateRotation = () => {
+                if (globeRef.current && globeMaterial) {
+                    const {lat, lng} = globeRef.current.pointOfView();
+                    globeMaterial.uniforms.globeRotation.value.set(lat, lng, 0);
+
+                    const currentTime = performance.now();
+                    const elapsedTime = (currentTime - startTimeRef.current) / 1000;
+                    const timeOfDay = (elapsedTime % cycleDuration) / cycleDuration;
+                    globeMaterial.uniforms.time.value = timeOfDay;
+                    globeMaterial.uniformsNeedUpdate = true;
+                }
+                animationFrameId = requestAnimationFrame(updateRotation);
+            };
+            updateRotation();
+            return () => cancelAnimationFrame(animationFrameId);
+        }, [globeMaterial, cycleDuration]);
+
+        return (
+            <div style={{
+                width: '100%',
+                height: '100vh',
+                position: 'relative',
+            }}>
+                <Globe
+                    ref={globeRef}
+                    globeMaterial={globeMaterial}
+                    backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+                />
+
+                <div className="slider-container">
+                    <label className="slider-label">
+                        Cycle Duration (seconds): {cycleDuration}
+                        <input
+                            type="range"
+                            min="2"
+                            max="60"
+                            value={cycleDuration}
+                            onChange={(e) => setCycleDuration(Number(e.target.value))}
+                            style={{width: '100%'}}
+                        />
+                    </label>
+                </div>
+            </div>
+        );
+    }
+
+    createRoot(document.getElementById('globeViz')).render(<DayNightGlobe/>);
+</script>
+</body>

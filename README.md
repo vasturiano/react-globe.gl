@@ -41,6 +41,7 @@ A React component to represent data visualization layers on a 3-dimensional glob
 * [Emit Arcs on Click](https://vasturiano.github.io/react-globe.gl/example/emit-arcs-on-click/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/emit-arcs-on-click/index.html))
 * [Clouds](https://vasturiano.github.io/react-globe.gl/example/clouds/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/clouds/index.html))
 * [Solar Terminator](https://vasturiano.github.io/react-globe.gl/example/solar-terminator/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/solar-terminator/index.html))
+* [Day Night Cycle](https://vasturiano.github.io/react-globe.gl/example/day-night-cycle/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/day-night-cycle/index.html))
 * [Tiled Map Engine](https://vasturiano.github.io/react-globe.gl/example/tile-engine/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/tile-engine/index.html))
 * [Custom Globe Styling](https://vasturiano.github.io/react-globe.gl/example/custom-globe-styling/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))
