@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 export default {
   width: PropTypes.number,
   height: PropTypes.number,
+  globeOffset: PropTypes.arrayOf(PropTypes.number),
   backgroundColor: PropTypes.string,
   backgroundImageUrl: PropTypes.string,
 

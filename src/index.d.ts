@@ -46,6 +46,7 @@ export interface GlobeProps extends ConfigOptions {
   // Container layout
   width?: number;
   height?: number;
+  globeOffset?: [number, number];
   backgroundColor?: string;
   backgroundImageUrl?: string | null;
 

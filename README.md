@@ -105,6 +105,7 @@ ReactDOM.render(
 | --- | :--: | :--: | --- |
 | <b>width</b> | <i>number</i> | *&lt;window width&gt;* | Canvas width. |
 | <b>height</b> | <i>number</i> | *&lt;window height&gt;* | Canvas height. |
+| <b>globeOffset</b> | <i>[number, number]</i> | `[0, 0]` | Position offset of the globe relative to the canvas center. |
 | <b>backgroundColor</b> | <i>string</i> | `#000011` | Background color. |
 | <b>backgroundImageUrl</b> | <i>string</i> | *-* | URL of the image to be used as background to the globe. If no image is provided, the background color is shown instead. |
 | <b>waitForGlobeReady</b> | <i>bool</i> | `true` | Whether to wait until the globe wrapping or background image has been fully loaded before rendering the globe or any of the data layers. |
