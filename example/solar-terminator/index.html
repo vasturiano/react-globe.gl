@@ -1,5 +1,15 @@
 <head>
-  <style> body { margin: 0; } </style>
+  <style>
+    body { margin: 0; }
+
+    #time {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      color: lightblue;
+      font-family: monospace;
+    }
+  </style>
 
   <script type="importmap">{ "imports": {
     "react": "https://esm.sh/react",
@@ -42,18 +52,21 @@
       })();
     }, []);
 
-    return <Globe
-      globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-      tilesData={[{ pos: sunPosAt(dt) }]}
-      tileLng={d => d.pos[0]}
-      tileLat={d => d.pos[1]}
-      tileAltitude={0.005}
-      tileWidth={180}
-      tileHeight={180}
-      tileUseGlobeProjection={false}
-      tileMaterial={() => solarMaterial}
-      tilesTransitionDuration={0}
-    />;
+    return <div>
+      <Globe
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+        tilesData={[{ pos: sunPosAt(dt) }]}
+        tileLng={d => d.pos[0]}
+        tileLat={d => d.pos[1]}
+        tileAltitude={0.005}
+        tileWidth={180}
+        tileHeight={180}
+        tileUseGlobeProjection={false}
+        tileMaterial={() => solarMaterial}
+        tilesTransitionDuration={0}
+      />
+      <div id="time">{new Date(dt).toLocaleString()}</div>
+    </div>;
   };
 
   createRoot(document.getElementById('globeViz'))
