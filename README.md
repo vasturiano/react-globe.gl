@@ -402,6 +402,7 @@ ReactDOM.render(
 | <b>htmlLng</b> | <i>number</i>, <i>string</i> or <i>func</i> | `lng` | HTML element accessor function, attribute or a numeric constant for the longitude coordinate of the element's central position. |
 | <b>htmlAltitude</b> | <i>number</i>, <i>string</i> or <i>func</i> | 0 | HTML element accessor function, attribute or a numeric constant for the altitude coordinate of the element's position, in terms of globe radius units. |
 | <b>htmlElement</b> | <i>string</i> or <i>func</i> | `null` | Accessor function or attribute to retrieve the DOM element to use. Should return an instance of [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement). |
+| <b>htmlElementVisibilityModifier</b> | <i>func(elem, isVisible)</i> | - | Custom function that defines how elements are shown/hidden according to whether they are in front or behind the globe. The function receives two arguments `(elem, isVisible)`, the HTML element and a boolean indicating if the element should be visible. By default the Three object itself is automatically hidden when behind the globe. |
 | <b>htmlTransitionDuration</b> | <i>number</i> | 1000 | Duration (ms) of the transition to animate HTML elements position changes. A value of `0` will move the elements immediately to their final position. |
 
 ### 3D Objects Layer

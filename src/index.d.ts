@@ -254,6 +254,7 @@ export interface GlobeProps extends ConfigOptions {
   htmlLng?: ObjAccessor<number>;
   htmlAltitude?: ObjAccessor<number>;
   htmlElement?: string | ((d: object) => HTMLElement);
+  htmlElementVisibilityModifier?: (el: HTMLElement, isVisible: boolean) => void;
   htmlTransitionDuration?: number;
 
   // 3D Objects layer
