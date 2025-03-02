@@ -15,8 +15,10 @@ See also the [react-three-fiber component](https://github.com/vasturiano/r3f-glo
    <a href="//vasturiano.github.io/react-globe.gl/example/countries-population/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/countries-population/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/submarine-cables/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/submarine-cables/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/hexed-polygons/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/hexed-polygons/preview.png"></a>
-   <a href="//vasturiano.github.io/react-globe.gl/example/world-cities/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/world-cities/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/population-heatmap/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/population-heatmap/preview.png"></a>
+   <a href="//vasturiano.github.io/react-globe.gl/example/world-cities/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/world-cities/preview.png"></a> 
+   <a href="//vasturiano.github.io/react-globe.gl/example/day-night-cycle/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/day-night-cycle/preview.png"></a>
+   <a href="//vasturiano.github.io/react-globe.gl/example/heatmap/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/heatmap/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/clouds/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/clouds/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/satellites/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/satellites/preview.png"></a>
    <a href="//vasturiano.github.io/react-globe.gl/example/moon-landing-sites/"><img width="48%" src="https://vasturiano.github.io/react-globe.gl/example/moon-landing-sites/preview.png"></a>
@@ -31,6 +33,7 @@ A React component to represent data visualization layers on a 3-dimensional glob
 * [Choropleth](https://vasturiano.github.io/react-globe.gl/example/choropleth-countries/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/choropleth-countries/index.html))
 * [Elevated Polygons](https://vasturiano.github.io/react-globe.gl/example/countries-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/countries-population/index.html))
 * [Hollow Globe](https://vasturiano.github.io/react-globe.gl/example/hollow-globe/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/hollow-globe/index.html))
+* [Day Night Cycle](https://vasturiano.github.io/react-globe.gl/example/day-night-cycle/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/day-night-cycle/index.html))
 * [Path Lines](https://vasturiano.github.io/react-globe.gl/example/random-paths/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/random-paths/index.html))
 * [Heatmap](https://vasturiano.github.io/react-globe.gl/example/heatmap/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/heatmap/index.html))
 * [Map Labels](https://vasturiano.github.io/react-globe.gl/example/world-cities/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-cities/index.html))
@@ -41,7 +44,6 @@ A React component to represent data visualization layers on a 3-dimensional glob
 * [Emit Arcs on Click](https://vasturiano.github.io/react-globe.gl/example/emit-arcs-on-click/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/emit-arcs-on-click/index.html))
 * [Clouds](https://vasturiano.github.io/react-globe.gl/example/clouds/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/clouds/index.html))
 * [Solar Terminator](https://vasturiano.github.io/react-globe.gl/example/solar-terminator/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/solar-terminator/index.html))
-* [Day Night Cycle](https://vasturiano.github.io/react-globe.gl/example/day-night-cycle/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/day-night-cycle/index.html))
 * [Tiled Map Engine](https://vasturiano.github.io/react-globe.gl/example/tile-engine/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/tile-engine/index.html))
 * [Custom Globe Styling](https://vasturiano.github.io/react-globe.gl/example/custom-globe-styling/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))

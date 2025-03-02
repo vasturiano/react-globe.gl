@@ -1,57 +1,41 @@
 <head>
-    <style>
-        body {
-            margin: 0;
-        }
+  <style>
+    body { margin: 0; }
 
-        .slider-container {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 200px;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .slider-label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #333;
-        }
-    </style>
-
-    <script type="importmap">
-  {
-    "imports": {
-      "react": "https://esm.sh/react",
-      "react-dom": "https://esm.sh/react-dom",
-      "react-dom/client": "https://esm.sh/react-dom/client",
-      "three": "https://esm.sh/three"
+    #time {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      color: lightblue;
+      font-family: monospace;
     }
-  }
-    </script>
+  </style>
+
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
+
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
+<!--  <script src="../../dist/react-globe.gl.js" defer></script>-->
 </head>
 
 <body>
 <div id="globeViz"></div>
 
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="//unpkg.com/@babel/standalone"></script>
 <script type="text/jsx" data-type="module">
-    import Globe from 'https://esm.sh/react-globe.gl?external=react';
-    import React, {useEffect, useRef, useState} from 'react';
-    import {createRoot} from 'react-dom/client';
-    import * as THREE from 'three';
+  import Globe from 'https://esm.sh/react-globe.gl?external=react';
+  import React, { useState, useEffect, useCallback } from 'react';
+  import { createRoot } from 'react-dom';
+  import { TextureLoader, ShaderMaterial, Vector2 } from 'https://esm.sh/three';
+  import * as solar from 'https://esm.sh/solar-calculator';
 
+  const VELOCITY = 1; // minutes per frame
 
-    // Custom shader
-    // - Blends night and day images to simulate day/night cycle
-    // - Updates terminator line as timeOfDay progresses
-    // - Maintains terminator line placement while rotating by using pointOfView()
-    const dayNightShader = {
-        vertexShader: `
+  // Custom shader:  Blends night and day images to simulate day/night cycle
+  const dayNightShader = {
+    vertexShader: `
       varying vec3 vNormal;
       varying vec2 vUv;
       void main() {
@@ -60,22 +44,32 @@
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
       }
     `,
-        fragmentShader: `
+    fragmentShader: `
       #define PI 3.141592653589793
       uniform sampler2D dayTexture;
       uniform sampler2D nightTexture;
-      uniform float time;
-      uniform vec3 globeRotation;
+      uniform vec2 sunPosition;
+      uniform vec2 globeRotation;
       varying vec3 vNormal;
       varying vec2 vUv;
 
-      void main() {
-        float sunAngle = time * 2.0 * PI;
-        vec3 sunDirection = vec3(cos(sunAngle), 0.0, sin(sunAngle));
-        vec3 rotation = globeRotation * PI / 180.0;
-        float invLat = -rotation.x;
-        float invLon = rotation.y;
+      float toRad(in float a) {
+        return a * PI / 180.0;
+      }
 
+      vec3 Polar2Cartesian(in vec2 c) { // [lng, lat]
+        float theta = toRad(90.0 - c.x);
+        float phi = toRad(90.0 - c.y);
+        return vec3( // x,y,z
+          sin(phi) * cos(theta),
+          cos(phi),
+          sin(phi) * sin(theta)
+        );
+      }
+
+      void main() {
+        float invLon = toRad(globeRotation.x);
+        float invLat = -toRad(globeRotation.y);
         mat3 rotX = mat3(
           1, 0, 0,
           0, cos(invLat), -sin(invLat),
@@ -86,94 +80,69 @@
           0, 1, 0,
           -sin(invLon), 0, cos(invLon)
         );
-
-        vec3 rotatedSunDirection = rotX * rotY * sunDirection;
+        vec3 rotatedSunDirection = rotX * rotY * Polar2Cartesian(sunPosition);
         float intensity = dot(normalize(vNormal), normalize(rotatedSunDirection));
         vec4 dayColor = texture2D(dayTexture, vUv);
         vec4 nightColor = texture2D(nightTexture, vUv);
         float blendFactor = smoothstep(-0.1, 0.1, intensity);
-
         gl_FragColor = mix(nightColor, dayColor, blendFactor);
       }
     `
-    };
+  };
 
-    function DayNightGlobe() {
+  const sunPosAt = dt => {
+    const day = new Date(+dt).setUTCHours(0, 0, 0, 0);
+    const t = solar.century(dt);
+    const longitude = (day - dt) / 864e5 * 360 - 180;
+    return [longitude - solar.equationOfTime(t) / 4, solar.declination(t)];
+  };
 
-        const globeRef = useRef();
-        const [globeMaterial, setGlobeMaterial] = useState();
-        const startTimeRef = useRef(performance.now());
-        const [cycleDuration, setCycleDuration] = useState(3);
+  const World = () => {
+    const [dt, setDt] = useState(+new Date());
+    const [globeMaterial, setGlobeMaterial] = useState();
 
-        useEffect(() => {
-            const loader = new THREE.TextureLoader();
-            Promise.all([
-                loader.loadAsync('//unpkg.com/three-globe/example/img/earth-day.jpg'),
-                loader.loadAsync('//unpkg.com/three-globe/example/img/earth-night.jpg')
-            ]).then(([dayTexture, nightTexture]) => {
-                const material = new THREE.ShaderMaterial({
-                    uniforms: {
-                        time: {value: 0},
-                        dayTexture: {value: dayTexture},
-                        nightTexture: {value: nightTexture},
-                        globeRotation: {value: new THREE.Vector3()}
-                    },
-                    vertexShader: dayNightShader.vertexShader,
-                    fragmentShader: dayNightShader.fragmentShader,
-                    side: THREE.FrontSide
-                });
-                setGlobeMaterial(material);
-            });
-        }, []);
+    useEffect(() => {
+      (function iterateTime() {
+        setDt(dt => dt + VELOCITY * 60 * 1000);
+        requestAnimationFrame(iterateTime);
+      })();
+    }, []);
 
-        useEffect(() => {
-            let animationFrameId;
-            const updateRotation = () => {
-                if (globeRef.current && globeMaterial) {
-                    const {lat, lng} = globeRef.current.pointOfView();
-                    globeMaterial.uniforms.globeRotation.value.set(lat, lng, 0);
+    useEffect(() => {
+      Promise.all([
+        new TextureLoader().loadAsync('//unpkg.com/three-globe/example/img/earth-day.jpg'),
+        new TextureLoader().loadAsync('//unpkg.com/three-globe/example/img/earth-night.jpg')
+      ]).then(([dayTexture, nightTexture]) => {
+        setGlobeMaterial(new ShaderMaterial({
+          uniforms: {
+            dayTexture: {value: dayTexture},
+            nightTexture: {value: nightTexture},
+            sunPosition: {value: new Vector2()},
+            globeRotation: {value: new Vector2()}
+          },
+          vertexShader: dayNightShader.vertexShader,
+          fragmentShader: dayNightShader.fragmentShader
+        }));
+      });
+    }, []);
 
-                    const currentTime = performance.now();
-                    const elapsedTime = (currentTime - startTimeRef.current) / 1000;
-                    const timeOfDay = (elapsedTime % cycleDuration) / cycleDuration;
-                    globeMaterial.uniforms.time.value = timeOfDay;
-                    globeMaterial.uniformsNeedUpdate = true;
-                }
-                animationFrameId = requestAnimationFrame(updateRotation);
-            };
-            updateRotation();
-            return () => cancelAnimationFrame(animationFrameId);
-        }, [globeMaterial, cycleDuration]);
+    useEffect(() => {
+      // Update Sun position
+      globeMaterial?.uniforms.sunPosition.value.set(...sunPosAt(dt));
+    }, [dt, globeMaterial]);
 
-        return (
-            <div style={{
-                width: '100%',
-                height: '100vh',
-                position: 'relative',
-            }}>
-                <Globe
-                    ref={globeRef}
-                    globeMaterial={globeMaterial}
-                    backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-                />
+    return <div>
+      <Globe
+        globeMaterial={globeMaterial}
+        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        // Update globe rotation on shader
+        onZoom={useCallback(({ lng, lat }) => globeMaterial?.uniforms.globeRotation.value.set(lng, lat), [globeMaterial])}
+      />
+      <div id="time">{new Date(dt).toLocaleString()}</div>
+    </div>;
+  };
 
-                <div className="slider-container">
-                    <label className="slider-label">
-                        Cycle Duration (seconds): {cycleDuration}
-                        <input
-                            type="range"
-                            min="2"
-                            max="60"
-                            value={cycleDuration}
-                            onChange={(e) => setCycleDuration(Number(e.target.value))}
-                            style={{width: '100%'}}
-                        />
-                    </label>
-                </div>
-            </div>
-        );
-    }
-
-    createRoot(document.getElementById('globeViz')).render(<DayNightGlobe/>);
+  createRoot(document.getElementById('globeViz'))
+    .render(<World />);
 </script>
 </body>
