@@ -112,7 +112,7 @@ ReactDOM.render(
 | <b>backgroundColor</b> | <i>string</i> | `#000011` | Background color. |
 | <b>backgroundImageUrl</b> | <i>string</i> | *-* | URL of the image to be used as background to the globe. If no image is provided, the background color is shown instead. |
 | <b>waitForGlobeReady</b> | <i>bool</i> | `true` | Whether to wait until the globe wrapping or background image has been fully loaded before rendering the globe or any of the data layers. |
-| <b>animateIn</b> | <i>bool</i> | `true` | Whether to animate the globe initialization, by scaling and rotating the globe into its inital position. This prop only has an effect on component mount. |
+| <b>animateIn</b> | <i>bool</i> | `true` | Whether to animate the globe initialization, by scaling and rotating the globe into its initial position. This prop only has an effect on component mount. |
 
 ### Globe Layer
 
