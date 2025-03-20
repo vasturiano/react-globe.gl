@@ -53,7 +53,7 @@
 
     useEffect(() => {
       // load satellite data
-      fetch('//unpkg.com/globe.gl/example/datasets/space-track-leo.txt').then(r => r.text()).then(rawData => {
+      fetch('//cdn.jsdelivr.net/npm/globe.gl/example/datasets/space-track-leo.txt').then(r => r.text()).then(rawData => {
         const tleData = rawData.replace(/\r/g, '')
           .split(/\n(?=[^12])/)
           .filter(d => d)
@@ -97,7 +97,7 @@
     return <div>
       <Globe
         ref={globeEl}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+        globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
         particlesData={particlesData}
         particleLabel="name"
         particleLat="lat"

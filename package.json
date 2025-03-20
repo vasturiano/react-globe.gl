@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "unpkg": "dist/react-globe.gl.min.js",
+  "jsdelivr": "dist/react-globe.gl.min.js",
   "main": "dist/react-globe.gl.mjs",
   "module": "dist/react-globe.gl.mjs",
   "types": "dist/react-globe.gl.d.ts",

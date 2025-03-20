@@ -110,8 +110,8 @@
 
     useEffect(() => {
       Promise.all([
-        new TextureLoader().loadAsync('//unpkg.com/three-globe/example/img/earth-day.jpg'),
-        new TextureLoader().loadAsync('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg'),
+        new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
       ]).then(([dayTexture, nightTexture]) => {
         setGlobeMaterial(new ShaderMaterial({
           uniforms: {
@@ -134,7 +134,7 @@
     return <div>
       <Globe
         globeMaterial={globeMaterial}
-        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        backgroundImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png"
         // Update globe rotation on shader
         onZoom={useCallback(({ lng, lat }) => globeMaterial?.uniforms.globeRotation.value.set(lng, lat), [globeMaterial])}
       />
