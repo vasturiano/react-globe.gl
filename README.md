@@ -67,7 +67,7 @@ import Globe from 'react-globe.gl';
 or using a *script* tag
 
 ```html
-<script src="//unpkg.com/react-globe.gl"></script>
+<script src="//cdn.jsdelivr.net/npm/react-globe.gl"></script>
 ```
 
 then
