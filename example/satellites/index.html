@@ -63,7 +63,7 @@
           name: name.trim().replace(/^0 /, '')
         }))
         // exclude those that can't be propagated
-        .filter(d => !!satellite.propagate(d.satrec, new Date()).position);
+        .filter(d => !!satellite.propagate(d.satrec, new Date())?.position);
 
         setSatData(satData);
       });
