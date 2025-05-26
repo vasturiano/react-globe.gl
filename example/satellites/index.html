@@ -77,12 +77,17 @@
       return [
         satData.map(d => {
           const eci = satellite.propagate(d.satrec, time);
-          if (eci.position) {
+          if (eci?.position) {
             const gdPos = satellite.eciToGeodetic(eci.position, gmst);
             const lat = satellite.radiansToDegrees(gdPos.latitude);
             const lng = satellite.radiansToDegrees(gdPos.longitude);
             const alt = gdPos.height / EARTH_RADIUS_KM;
             return { ...d, lat, lng, alt };
+          } else {
+            // explicitly handle invalid position
+            d.lat = NaN;
+            d.lng = NaN;
+            d.alt = NaN;
           }
           return d;
         }).filter(d => !isNaN(d.lat) && !isNaN(d.lng) && !isNaN(d.alt))
