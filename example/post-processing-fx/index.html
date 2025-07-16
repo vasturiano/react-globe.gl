@@ -1,0 +1,42 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script type="importmap">{ "imports": {
+    "react": "https://esm.sh/react",
+    "react-dom": "https://esm.sh/react-dom/client"
+  }}</script>
+
+<!--  <script type="module">import * as React from 'react'; window.React = React;</script>-->
+<!--  <script src="../../dist/react-globe.gl.js" defer></script>-->
+</head>
+
+<body>
+  <div id="globeViz"></div>
+
+  <script src="//unpkg.com/@babel/standalone"></script>
+  <script type="text/jsx" data-type="module">
+    import Globe from 'https://esm.sh/react-globe.gl?external=react';
+    import React, { useEffect, useRef } from 'react';
+    import { createRoot } from 'react-dom';
+    import { GlitchPass } from 'https://esm.sh/three/examples/jsm/postprocessing/GlitchPass.js';
+
+    const World = () => {
+      const globeRef = useRef();
+
+      useEffect(() => {
+        globeRef.current.postProcessingComposer().addPass(new GlitchPass());
+      }, []);
+
+      return <Globe
+        ref={globeRef}
+        globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
+        backgroundImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png"
+      />;
+    };
+
+    createRoot(document.getElementById('globeViz')).render(
+      <World />,
+      document.getElementById('globeViz')
+    );
+  </script>
+</body>

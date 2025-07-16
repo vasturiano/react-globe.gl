@@ -47,6 +47,7 @@ A React component to represent data visualization layers on a 3-dimensional glob
 * [Tiled Map Engine](https://vasturiano.github.io/react-globe.gl/example/tile-engine/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/tile-engine/index.html))
 * [Custom Globe Styling](https://vasturiano.github.io/react-globe.gl/example/custom-globe-styling/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-globe-styling/index.html))
 * [Custom Layer](https://vasturiano.github.io/react-globe.gl/example/custom-layer/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/custom-layer/index.html))
+* [Glitch Post-Processing Effect](https://vasturiano.github.io/react-globe.gl/example/post-processing-fx/index.html) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/post-processing-fx/index.html))
 * [World Population](https://vasturiano.github.io/react-globe.gl/example/world-population/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/world-population/index.html))
 * [Population Heatmap](https://vasturiano.github.io/react-globe.gl/example/population-heatmap/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/population-heatmap/index.html))
 * [Recent Earthquakes](https://vasturiano.github.io/react-globe.gl/example/earthquakes/) ([source](https://github.com/vasturiano/react-globe.gl/blob/master/example/earthquakes/index.html))
