@@ -84,8 +84,10 @@ export interface GlobeProps extends ConfigOptions {
   arcsData?: object[];
   arcStartLat?: ObjAccessor<number>;
   arcStartLng?: ObjAccessor<number>;
+  arcStartAltitude?: ObjAccessor<number>;
   arcEndLat?: ObjAccessor<number>;
   arcEndLng?: ObjAccessor<number>;
+  arcEndAltitude?: ObjAccessor<number>;
   arcColor?: ObjAccessor<string | string[] | ((t: number) => string)>;
   arcAltitude?: ObjAccessor<number | null>;
   arcAltitudeAutoScale?: ObjAccessor<number>;
