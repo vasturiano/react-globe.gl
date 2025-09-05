@@ -286,6 +286,7 @@ export interface GlobeProps extends ConfigOptions {
   enablePointerInteraction?: boolean;
   pointerEventsFilter?: (object: Object3D, data?: object) => boolean;
   lineHoverPrecision?: number;
+  showPointerCursor?: boolean | ((objType: string, objData: object) => boolean);
   onZoom?: (pov: GeoCoords) => void;
 }
 

@@ -224,5 +224,6 @@ export default {
   enablePointerInteraction: PropTypes.bool,
   pointerEventsFilter: PropTypes.func,
   lineHoverPrecision: PropTypes.number,
+  showPointerCursor: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
   onZoom:PropTypes.func
 };
