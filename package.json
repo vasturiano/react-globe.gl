@@ -46,7 +46,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "globe.gl": "^2.44",
+    "globe.gl": "^2.45",
     "prop-types": "15",
     "react-kapsule": "^2.5"
   },
@@ -54,19 +54,19 @@
     "react": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.4",
-    "@babel/preset-env": "^7.28.3",
-    "@babel/preset-react": "^7.27.1",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/plugin-replace": "^6.0.2",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/react": "^19.1.12",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.50.0",
+    "@types/react": "^19.2.2",
+    "rimraf": "^6.1.0",
+    "rollup": "^4.52.5",
     "rollup-plugin-dts": "^6.2.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=12"

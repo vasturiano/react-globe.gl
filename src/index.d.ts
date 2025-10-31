@@ -310,6 +310,9 @@ export interface GlobeMethods {
   getScreenCoords(lat: number, lng: number, altitude?: number): ScreenCoords;
   toGeoCoords(coords: CartesianCoords): GeoCoords;
   toGlobeCoords(x: number, y: number): { lat: number, lng: number} | null;
+
+  // Other
+  globeTileEngineClearCache(): GlobeKapsuleInstance;
 }
 
 type FCwithRef<P = {}, R = {}> = React.FunctionComponent<P & { ref?: React.MutableRefObject<R | undefined> }>;
